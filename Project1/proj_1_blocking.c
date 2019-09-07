@@ -18,24 +18,36 @@ int main(int argc,char *argv[])
 
    int rank, p;
    struct timeval t1, t2;
-
+   int size = 0;
+   
    MPI_Init(&argc, &argv);
    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
    MPI_Comm_size(MPI_COMM_WORLD, &p);
+   
 
+   if(argc == 1)
+   { 
+	printf("Argv[0]: %s", argv[0]);
+	size = atoi(argv[0]);
+   }
+   printf("Size of buff: %d\n", size);
    printf("my rank=%d\n", rank);
    printf("Rank=%d: number of processes =%d\n", rank, p);
 
    assert(p >= 2);
 
    if(rank == 1) {
-	   	int size = 1024;
-		// int i = 0;
+	   	//int size = 4128;
+		int i = 0;
 		// for (size = 1; size <= 1000; size = size*2 )
 		// {
 		// 	for (i = 0; i<10; i++)
 		// 	{
 			char *my_char = malloc(sizeof(char) *(size));
+                        for(i = 0; i < size; i++)
+                        {
+			   my_char[i] = 'T';
+			}
 			int dest = 0;
 			gettimeofday(&t1, NULL);
 			MPI_Send( my_char, size, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
@@ -47,7 +59,7 @@ int main(int argc,char *argv[])
 		// }
    } else 
    if (rank == 0) {
-	   int size = 1024;
+	   //int size = 4128;
 	//    int i = 0;
 	   // This is my code!!!!!
 	//    for(size = 1; size <= 1000; size = size * 2)
