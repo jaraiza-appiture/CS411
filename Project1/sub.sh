@@ -14,3 +14,5 @@ mpirun -np 2 ./proj_1
 
 
 # you can add more lines of commands here, if you wish.
+
+# i do not want to.
