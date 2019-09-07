@@ -28,16 +28,21 @@ int main(int argc,char *argv[])
 
    assert(p >= 2);
 
-
    if(rank == 1) {
-		int x = 10;
+	for (int size = 1; size < = 1000; size = size*2 )
+	   {
+		for (int i = 0; i<10; i++)
+		{
+		char *my_char = malloc(sizeOf(char) *(size));
 		int dest = 0;
 		gettimeofday(&t1, NULL);
-		MPI_Send(&x, 1, MPI_INT, dest, 0, MPI_COMM_WORLD);
+		MPI_Send(&my_char, i, MPI_INT, dest, 0, MPI_COMM_WORLD);
 		gettimeofday(&t2, NULL);
 		int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
 		printf("Rank=%d: sent message %d to rank %d; Send time %d millisec\n", rank, x, dest, tSend);
+		}
+	   }
    } else 
    if (rank == 0) {
 	   // This is my code!!!!!
