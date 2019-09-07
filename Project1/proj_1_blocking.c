@@ -29,7 +29,7 @@ int main(int argc,char *argv[])
    assert(p >= 2);
 
    if(rank == 1) {
-	   	int size = 1024;
+	   	int size = 8;
 		// int i = 0;
 		// for (size = 1; size <= 1000; size = size*2 )
 		// {
@@ -47,7 +47,7 @@ int main(int argc,char *argv[])
 		// }
    } else 
    if (rank == 0) {
-	   int size = 1024;
+	   int size = 8;
 	//    int i = 0;
 	   // This is my code!!!!!
 	//    for(size = 1; size <= 1000; size = size * 2)
