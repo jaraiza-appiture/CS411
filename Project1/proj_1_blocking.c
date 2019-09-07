@@ -40,7 +40,7 @@ int main(int argc,char *argv[])
 		printf("Rank=%d: sent message %d to rank %d; Send time %d millisec\n", rank, x, dest, tSend);
    } else 
    if (rank == 0) {
-	   // This is my code!!!!
+	   // This is my code!!!!!
 	   for(int size = 1; size <= 1000; size = size * 2)
 		{	
 			for(int i = 0; i < 10; i++)
