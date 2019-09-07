@@ -35,7 +35,7 @@ int main(int argc,char *argv[])
 		gettimeofday(&t1, NULL);
 		MPI_Send(&x, 1, MPI_INT, dest, 0, MPI_COMM_WORLD);
 		gettimeofday(&t2, NULL);
-		int tSend = (t2.tv_sec-t1.tv_sec)*1000 + (t2.tv_usec-t1.tv_usec) / 1000;
+		int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
 		printf("Rank=%d: sent message %d to rank %d; Send time %d millisec\n", rank, x, dest, tSend);
    } else 
