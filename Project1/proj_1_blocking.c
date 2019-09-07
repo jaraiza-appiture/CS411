@@ -46,13 +46,19 @@ int main(int argc,char *argv[])
    } else 
    if (rank == 0) {
 	   // This is my code!!!!
-   		int y = 0;
-		MPI_Status status;
-		gettimeofday(&t1, NULL);
-   		MPI_Recv(&y, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-		gettimeofday(&t2, NULL);
-		int tRecv = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
-		printf("Rank=%d: received message %d from rank %d; Recv time %d millisec\n",rank, y, status.MPI_SOURCE, tRecv);
+	   for(int size = 1; size <= 1000; size = size * 2)
+		{	
+			for(int i = 0; i < 10; i++)
+			{
+				char *y = malloc(sizeof(char)*(size));
+				MPI_Status status;
+				gettimeofday(&t1, NULL);
+				MPI_Recv(y, size, MPI_CHAR, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+				gettimeofday(&t2, NULL);
+				int tRecv = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
+				printf("Rank=%d: received message %d from rank %d; Recv time %d millisec\n",rank, y, status.MPI_SOURCE, tRecv);
+			}
+		}
    }
 
    MPI_Finalize();
