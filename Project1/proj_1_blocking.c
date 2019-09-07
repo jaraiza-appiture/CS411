@@ -42,7 +42,7 @@ int main(int argc,char *argv[])
 			gettimeofday(&t2, NULL);
 			int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
-			printf("Rank=%d: sent message %d to rank %d; Send time %d millisec\n", rank, x, dest, tSend);
+			printf("Rank=%d: sent message %c to rank %d; Send time %d microseconds; size: %d\n", rank, my_char[0], dest, tSend, size);
 			}
 		}
    } else 
@@ -60,7 +60,7 @@ int main(int argc,char *argv[])
 				MPI_Recv(y, size, MPI_CHAR, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 				gettimeofday(&t2, NULL);
 				int tRecv = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
-				printf("Rank=%d: received message %d from rank %d; Recv time %d millisec\n",rank, y, status.MPI_SOURCE, tRecv);
+				printf("Rank=%d: received message %d from rank %d; Recv time %d microseconds; size: %d\n",rank, y, status.MPI_SOURCE, tRecv, size);
 			}
 		}
    }
