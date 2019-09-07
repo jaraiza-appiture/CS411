@@ -32,7 +32,7 @@ int main(int argc,char *argv[])
 	   	int size = 1024;
 		// int i = 0;
 		// for (size = 1; size <= 1000; size = size*2 )
-	git config credential.helper store	// {
+		// {
 		// 	for (i = 0; i<10; i++)
 		// 	{
 			char *my_char = malloc(sizeof(char) *(size));
