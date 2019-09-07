@@ -29,26 +29,30 @@ int main(int argc,char *argv[])
    assert(p >= 2);
 
    if(rank == 1) {
-	for (int size = 1; size < = 1000; size = size*2 )
-	   {
-		for (int i = 0; i<10; i++)
+	   	int size = 0;
+		int i = 0;
+		for (size = 1; size <= 1000; size = size*2 )
 		{
-		char *my_char = malloc(sizeof(char) *(size));
-		int dest = 0;
-		gettimeofday(&t1, NULL);
-		MPI_Send( my_char, i, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
-		gettimeofday(&t2, NULL);
-		int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
+			for (i = 0; i<10; i++)
+			{
+			char *my_char = malloc(sizeof(char) *(size));
+			int dest = 0;
+			gettimeofday(&t1, NULL);
+			MPI_Send( my_char, i, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
+			gettimeofday(&t2, NULL);
+			int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
-		printf("Rank=%d: sent message %d to rank %d; Send time %d millisec\n", rank, x, dest, tSend);
+			printf("Rank=%d: sent message %d to rank %d; Send time %d millisec\n", rank, x, dest, tSend);
+			}
 		}
-	   }
    } else 
    if (rank == 0) {
+	   int size = 0;
+	   int i = 0;
 	   // This is my code!!!!!
-	   for(int size = 1; size <= 1000; size = size * 2)
+	   for(size = 1; size <= 1000; size = size * 2)
 		{	
-			for(int i = 0; i < 10; i++)
+			for(i = 0; i < 10; i++)
 			{
 				char *y = malloc(sizeof(char)*(size));
 				MPI_Status status;
