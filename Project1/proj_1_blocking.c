@@ -29,12 +29,12 @@ int main(int argc,char *argv[])
    assert(p >= 2);
 
    if(rank == 1) {
-	   	int size = 0;
-		int i = 0;
-		for (size = 1; size <= 1000; size = size*2 )
-		{
-			for (i = 0; i<10; i++)
-			{
+	   	int size = 1024;
+		// int i = 0;
+		// for (size = 1; size <= 1000; size = size*2 )
+	git config credential.helper store	// {
+		// 	for (i = 0; i<10; i++)
+		// 	{
 			char *my_char = malloc(sizeof(char) *(size));
 			int dest = 0;
 			gettimeofday(&t1, NULL);
@@ -43,17 +43,17 @@ int main(int argc,char *argv[])
 			int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
 			printf("Rank=%d: sent message %c to rank %d; Send time %d microseconds; size: %d\n", rank, my_char[0], dest, tSend, size);
-			}
-		}
+		// 	}
+		// }
    } else 
    if (rank == 0) {
-	   int size = 0;
-	   int i = 0;
+	   int size = 1024;
+	//    int i = 0;
 	   // This is my code!!!!!
-	   for(size = 1; size <= 1000; size = size * 2)
-		{	
-			for(i = 0; i < 10; i++)
-			{
+	//    for(size = 1; size <= 1000; size = size * 2)
+	// 	{	
+	// 		for(i = 0; i < 10; i++)
+	// 		{
 				char *y = malloc(sizeof(char)*(size));
 				MPI_Status status;
 				gettimeofday(&t1, NULL);
@@ -61,8 +61,8 @@ int main(int argc,char *argv[])
 				gettimeofday(&t2, NULL);
 				int tRecv = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 				printf("Rank=%d: received message %c from rank %d; Recv time %d microseconds; size: %d\n",rank, y[0], status.MPI_SOURCE, tRecv, size);
-			}
-		}
+		// 	}
+		// }
    }
 
    MPI_Finalize();
