@@ -33,7 +33,7 @@ int main(int argc,char *argv[])
 	   {
 		for (int i = 0; i<10; i++)
 		{
-		char *my_char = malloc(sizeOf(char) *(size));
+		char *my_char = malloc(sizeof(char) *(size));
 		int dest = 0;
 		gettimeofday(&t1, NULL);
 		MPI_Send(&my_char, i, MPI_INT, dest, 0, MPI_COMM_WORLD);
