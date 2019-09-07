@@ -25,10 +25,10 @@ int main(int argc,char *argv[])
    MPI_Comm_size(MPI_COMM_WORLD, &p);
    
 
-   if(argc == 1)
+   if(argc >= 1)
    { 
-	printf("Argv[0]: %s", argv[0]);
-	size = atoi(argv[0]);
+	printf("Argv[1]: %s", argv[1]);
+	size = atoi(argv[1]);
    }
    printf("Size of buff: %d\n", size);
    printf("my rank=%d\n", rank);
