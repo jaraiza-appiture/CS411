@@ -36,7 +36,7 @@ int main(int argc,char *argv[])
 		char *my_char = malloc(sizeof(char) *(size));
 		int dest = 0;
 		gettimeofday(&t1, NULL);
-		MPI_Send(&my_char, i, MPI_INT, dest, 0, MPI_COMM_WORLD);
+		MPI_Send( my_char, i, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
 		gettimeofday(&t2, NULL);
 		int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
