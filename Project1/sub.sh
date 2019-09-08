@@ -10,23 +10,23 @@
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
-# for i in $(seq $start $end);
-# do
-#     mpirun -np 2 ./proj_1_blocking $i > out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     mpirun -np 2 ./proj_1_blocking $i >> out$i.txt;
-#     ((i=i*2))
-# done
-for ((i=1;i<=5;i++)); do
-    echo $i
+# for i in $(seq $1 $12);
+for i in {1..12..*2}
+do
+    mpirun -np 2 ./proj_1_blocking $i > out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
 done
+# for ((i=1;i<=5;i++)); do
+#     echo $i
+# done
 # you can add more lines of commands here, if you wish.
 
 # i do not want to.
