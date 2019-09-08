@@ -10,7 +10,7 @@ SBATCH --time=00:10:00
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
-for i in $(seq 1 2 12)
+for ((i=0; i<=12;i*=2));
     do
         mpirun -np 2 ./proj_1_blocking $i > out$i.txt
         mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
