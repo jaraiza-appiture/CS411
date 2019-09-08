@@ -6,11 +6,23 @@
 # note: the format is hr:min:sec (default set here to 10 mins)
 SBATCH --time=00:10:00
 
+
+#MPI helloworld example - this line is a comment
+#"np" stands for number of processes.
+#this command will run the job on 8 processes.
 for i in {1..1024..2}
     do
         mpirun -np 2 ./proj_1_blocking $i > out$i.txt
-        for j in {1..9..1}
-            do
-                mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-            done
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
     done
+# you can add more lines of commands here, if you wish.
+
+# i do not want to.
