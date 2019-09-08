@@ -4,25 +4,24 @@
 
 # setting the max wallclock time after which the job will be killed; 
 # note: the format is hr:min:sec (default set here to 10 mins)
-#SBATCH --time=00:10:00
+SBATCH --time=00:10:00
 
 
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
-for i in $(seq 1 *2 12)
-do
-    mpirun -np 2 ./proj_1_blocking $i > out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-    mpirun -np 2 ./proj_1_blocking $i >> out$i.txt
-done
+
+mpirun -np 2 ./proj_1_blocking 1 > out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+
 # for ((i=1;i<=5;i++)); do
 #     echo $i
 # done
