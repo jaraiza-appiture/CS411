@@ -13,7 +13,7 @@ SBATCH --time=00:10:00
 for i in {1..12}
     do
         mpirun -np 2 ./proj_1_blocking i > out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+        mpirun -np 2 ./proj_1_blocking i >> out$i.txts
         mpirun -np 2 ./proj_1_blocking i >> out$i.txt
         mpirun -np 2 ./proj_1_blocking i >> out$i.txt
         mpirun -np 2 ./proj_1_blocking i >> out$i.txt
