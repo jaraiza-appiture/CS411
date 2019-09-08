@@ -12,6 +12,7 @@ SBATCH --time=00:10:00
 #this command will run the job on 8 processes.
 
 mpirun -np 2 ./proj_1_blocking 1 > out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
