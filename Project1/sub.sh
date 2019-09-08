@@ -11,18 +11,18 @@ SBATCH --time=00:10:00
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
 for i in {1..12}
-    do
-        mpirun -np 2 ./proj_1_blocking i > out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txts
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-        mpirun -np 2 ./proj_1_blocking i >> out$i.txt
-    done
+do
+    mpirun -np 2 ./proj_1_blocking i > out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+    mpirun -np 2 ./proj_1_blocking i >> out$i.txt
+done
 # you can add more lines of commands here, if you wish.
 
 # i do not want to.
