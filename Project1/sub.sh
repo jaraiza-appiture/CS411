@@ -14,14 +14,24 @@ SBATCH --time=00:10:00
 mpirun -np 2 ./proj_1_blocking 1 > out1.txt
 echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
 mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
+echo "\n" >> out1.txt 
+
 
 # for ((i=1;i<=5;i++)); do
 #     echo $i

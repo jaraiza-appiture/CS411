@@ -37,26 +37,19 @@ int main(int argc,char *argv[])
    assert(p >= 2);
 
    if(rank == 1) {
-	   	//int size = 4128;
-		int i = 0;
-		// for (size = 1; size <= 1000; size = size*2 )
-		// {
-		// 	for (i = 0; i<10; i++)
-		// 	{
-			char *my_char = malloc(sizeof(char) *(size));
-                        for(i = 0; i < size; i++)
-                        {
-			   my_char[i] = 'T';
-			}
-			int dest = 0;
-			gettimeofday(&t1, NULL);
-			MPI_Send( my_char, size, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
-			gettimeofday(&t2, NULL);
-			int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
+	int i = 0;
+	char *my_char = malloc(sizeof(char) *(size));
+				for(i = 0; i < size; i++)
+				{
+		my_char[i] = 'T';
+	}
+	int dest = 0;
+	gettimeofday(&t1, NULL);
+	MPI_Send( my_char, size, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
+	gettimeofday(&t2, NULL);
+	int tSend = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
 
-			printf("Rank=%d: sent message %c to rank %d; Send time %d microseconds; size: %d\n", rank, my_char[0], dest, tSend, size);
-		// 	}
-		// }
+	printf("Rank=%d: sent message %c to rank %d; Send time %d microseconds; size: %d\n", rank, my_char[0], dest, tSend, size);
    } else 
    if (rank == 0) {
 	   //int size = 4128;
