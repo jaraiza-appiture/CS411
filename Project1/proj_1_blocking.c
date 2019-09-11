@@ -31,7 +31,7 @@ int main(int argc,char *argv[])
 	size = atoi(argv[1]);
    }
    assert(p >= 2);
-   print ("\n");
+   printf("\n");
 
    if(rank == 1) {
 	int i = 0;

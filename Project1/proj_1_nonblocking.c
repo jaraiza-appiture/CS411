@@ -30,7 +30,7 @@ int main(int argc,char *argv[])
 	// printf("Argv[1]: %s", argv[1]);
 	size = atoi(argv[1]);
    }
-   print ("\n");
+   printf("\n");
    assert(p >= 2);
 
    if(rank == 1) {
