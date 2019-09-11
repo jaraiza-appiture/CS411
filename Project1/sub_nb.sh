@@ -16,19 +16,16 @@ n=1
 while [ $n -le 1024 ]
 do
 	echo "Welcome $n times."
-    mpirun -np 2 ./proj_1_nonblocking $n > ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_nonblocking $n >> ./proj_1_nonblocking_txt/out$n.txt
-
-    echo "\n" >> ./proj_1_nonblocking_txt/out$n.txt 
-
+    mpirun -np 2 ./proj_1_nonblocking $n > ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
 	n=$(( n*2 ))	 # increments $n
 done
 

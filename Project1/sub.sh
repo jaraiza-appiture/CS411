@@ -16,17 +16,17 @@ n=1
 while [ $n -le 1024 ]
 do
 	echo "Welcome $n times."
-    mpirun -np 2 ./proj_1_blocking $n > ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./proj_1_blocking_txt/out$n.txt
-    echo "\n" >> proj_1_blocking_txt/out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n > ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
+    echo "\n" >> proj_1_blocking_file/out$n.txt 
 
 	n=$(( n*2 ))	 # increments $n
 done
