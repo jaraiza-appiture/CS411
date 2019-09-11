@@ -10,27 +10,37 @@ SBATCH --time=00:10:00
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
+n=1
 
-mpirun -np 2 ./proj_1_blocking 1 > out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
-mpirun -np 2 ./proj_1_blocking 1 >> out1.txt
-echo "\n" >> out1.txt 
+# continue until $n equals 5
+while [ $n -le 8 ]
+do
+	echo "Welcome $n times."
+    echo "Run 1\n" > out$n.txt
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 2\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 3\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 4\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 5\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 6\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 7\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 8\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 9\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "Run 10\n" >> out$n.txt 
+    mpirun -np 2 ./proj_1_blocking $n >> out$n.txt
+    echo "\n" >> out$n.txt 
+
+	n=$(( n*2 ))	 # increments $n
+done
+
 
 
 # for ((i=1;i<=5;i++)); do
