@@ -12,7 +12,8 @@ SBATCH --time=00:10:00
 #this command will run the job on 8 processes.
 n=1
 
-# continue until $n equals 5
+# continue until $n equals 1024
+# resource https://bash.cyberciti.biz/guide/While_loop
 while [ $n -le 1024 ]
 do
 	echo "Welcome $n times."
