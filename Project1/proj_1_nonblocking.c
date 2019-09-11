@@ -27,13 +27,10 @@ int main(int argc,char *argv[])
 
    if(argc >= 1)
    { 
-	printf("Argv[1]: %s", argv[1]);
+	// printf("Argv[1]: %s", argv[1]);
 	size = atoi(argv[1]);
    }
-   printf("Size of buff: %d\n", size);
-   printf("my rank=%d\n", rank);
-   printf("Rank=%d: number of processes =%d\n", rank, p);
-
+   print ("\n")
    assert(p >= 2);
 
    if(rank == 1) {
