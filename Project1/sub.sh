@@ -10,14 +10,14 @@ SBATCH --time=00:10:00
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
+mpicc -o proj_1_blocking proj_1_blocking.c -w
 n=1
 
 # continue until $n equals 1024
 # resource https://bash.cyberciti.biz/guide/While_loop
 while [ $n -le 1024 ]
 do
-	echo "Welcome $n times."
-    mpirun -np 2 ./proj_1_blocking $n > ./blocking_files/out$n.txt
+	echo "Welcome $n times.\n" > ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
@@ -27,8 +27,7 @@ do
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    echo "\n" >> proj_1_blocking_file/out$n.txt 
-
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt 
 	n=$(( n*2 ))	 # increments $n
 done
 

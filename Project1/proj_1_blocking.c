@@ -38,7 +38,7 @@ int main(int argc,char *argv[])
 	char *my_char = malloc(sizeof(char) *(size));
 				for(i = 0; i < size; i++)
 				{
-		my_char[i] = 'T';
+		my_char[i] = 'T'; //change this to use memset instead
 	}
 	int dest = 0;
 	gettimeofday(&t1, NULL);

@@ -1,0 +1,42 @@
+Welcome 64 times.
+
+
+
+Rank=0: received message T from rank 1; Recv time 448 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 328 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 432 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 317 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 412 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 308 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 428 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 408 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 300 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 403 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 421 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 450 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 314 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 438 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 309 microseconds; size: 64
+
+
+Rank=0: received message T from rank 1; Recv time 443 microseconds; size: 64
+Rank=1: sent message T to rank 0; Send time 311 microseconds; size: 64

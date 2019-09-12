@@ -38,7 +38,7 @@ int main(int argc,char *argv[])
 	char *my_char = malloc(sizeof(char) *(size));
 				for(i = 0; i < size; i++)
 				{
-		my_char[i] = 'T';
+		my_char[i] = 'T'; // change this to use memset
 	}
 	int dest = 0;
 	gettimeofday(&t1, NULL);
@@ -56,7 +56,7 @@ int main(int argc,char *argv[])
 
         gettimeofday(&t1, NULL);
         MPI_Irecv(y, size, MPI_CHAR, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &request);
-        gettimeofday(&t2, NULL);
+        gettimeofday(&t2, NULL); // need to poll test for msg in while loop
         int tRecv = (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
         printf("Rank=%d: received message %c from rank %d; Recv time %d microseconds; size: %d\n",rank, y[0], status.MPI_SOURCE, tRecv, size);
         MPI_Wait(&request, &status);

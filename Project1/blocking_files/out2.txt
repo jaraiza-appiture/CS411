@@ -1,0 +1,42 @@
+Welcome 2 times.
+
+
+
+Rank=0: received message T from rank 1; Recv time 383 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 304 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 448 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 314 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 439 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 319 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 350 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 456 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 318 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 433 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 309 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 422 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 310 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 440 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 442 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 2
+
+
+Rank=0: received message T from rank 1; Recv time 453 microseconds; size: 2
+Rank=1: sent message T to rank 0; Send time 318 microseconds; size: 2
