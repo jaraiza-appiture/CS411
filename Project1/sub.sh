@@ -17,7 +17,6 @@ n=1
 # resource https://bash.cyberciti.biz/guide/While_loop
 while [ $n -le 4096 ]
 do
-
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt

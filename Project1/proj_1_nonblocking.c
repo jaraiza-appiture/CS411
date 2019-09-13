@@ -1,13 +1,3 @@
-/*	Cpt S 411, Introduction to Parallel Computing
- *	School of Electrical Engineering and Computer Science
- *	
- *	Example code
- *	Send receive test:
- *   	rank 1 sends to rank 0 (all other ranks sit idle)
- *   	For timing use of C gettimeofday() is recommended.
- * */
-
-
 #include <stdio.h>
 #include <mpi.h> 
 #include <assert.h>
