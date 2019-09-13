@@ -29,7 +29,7 @@ int main(int argc,char *argv[])
 		// 		for(i = 0; i < size; i++)
 		// 		{
 		// my_char[i] = 'T'; //change this to use memset instead
-	}
+	// }
 	int dest = 0;
 	gettimeofday(&t1, NULL);
 	MPI_Send( my_char, size, MPI_CHAR, dest, 0, MPI_COMM_WORLD);
