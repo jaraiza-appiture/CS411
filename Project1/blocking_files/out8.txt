@@ -1,42 +1,40 @@
-Welcome 8 times.
-
-
-
-Rank=0: received message T from rank 1; Recv time 412 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 309 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 448 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 308 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 431 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 307 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 429 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 303 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 404 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 477 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 327 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 472 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 331 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 412 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 316 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 452 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 318 microseconds; size: 8
-
-
-Rank=0: received message T from rank 1; Recv time 442 microseconds; size: 8
-Rank=1: sent message T to rank 0; Send time 316 microseconds; size: 8
+0,416,8
+1,298,8
+0,436,8
+1,314,8
+0,435,8
+1,306,8
+0,446,8
+1,309,8
+0,446,8
+1,311,8
+0,412,8
+1,321,8
+0,473,8
+1,340,8
+0,428,8
+1,305,8
+0,412,8
+1,302,8
+0,426,8
+1,307,8
+0,407,8
+1,302,8
+0,418,8
+1,309,8
+0,442,8
+1,314,8
+0,408,8
+1,305,8
+0,421,8
+1,309,8
+0,436,8
+1,315,8
+0,453,8
+1,316,8
+0,443,8
+1,307,8
+0,437,8
+1,315,8
+0,438,8
+1,311,8

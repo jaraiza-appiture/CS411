@@ -1,42 +1,40 @@
-Welcome 16 times.
-
-
-
-Rank=0: received message T from rank 1; Recv time 430 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 388 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 301 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 422 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 414 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 423 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 429 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 304 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 433 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 310 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 425 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 307 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 446 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 311 microseconds; size: 16
-
-
-Rank=0: received message T from rank 1; Recv time 405 microseconds; size: 16
-Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 16
+0,447,16
+1,314,16
+0,436,16
+1,313,16
+0,391,16
+1,313,16
+0,416,16
+1,310,16
+0,414,16
+1,300,16
+0,421,16
+1,310,16
+0,419,16
+1,304,16
+0,415,16
+1,297,16
+0,429,16
+1,315,16
+0,448,16
+1,312,16
+0,413,16
+1,301,16
+0,426,16
+1,312,16
+0,411,16
+1,299,16
+0,431,16
+1,305,16
+0,418,16
+1,302,16
+0,428,16
+1,312,16
+0,429,16
+1,312,16
+0,426,16
+1,313,16
+0,414,16
+1,300,16
+0,374,16
+1,302,16
