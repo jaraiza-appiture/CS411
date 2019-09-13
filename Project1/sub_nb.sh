@@ -16,9 +16,8 @@ n=1
 
 # continue until $n equals 1024
 #resource https://bash.cyberciti.biz/guide/While_loop
-while [ $n -le 1024 ]
+while [ $n -le 4096 ]
 do
-	echo "Welcome $n times." > ./nonblocking_files/out$n.txt
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt   
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
