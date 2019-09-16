@@ -1,80 +1,40 @@
-
-Rank=0: received message è from rank 4197712; Recv time 7 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 8 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 7 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 307 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 8 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 8 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 7 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 318 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 8 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 314 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 7 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 319 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 8 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 308 microseconds; size: 4
-
-Rank=0: received message è from rank 4197712; Recv time 7 microseconds; size: 4
-
-Rank=1: sent message T to rank 0; Send time 308 microseconds; size: 4
-0,458,4
-1,303,4
-0,422,4
-1,301,4
-0,431,4
-1,306,4
-0,435,4
-1,303,4
-0,401,4
-1,305,4
-0,447,4
+0,433,4
 1,312,4
-0,438,4
-1,309,4
-0,404,4
-1,303,4
-0,452,4
-1,314,4
+0,434,4
+1,311,4
 0,416,4
 1,301,4
-0,426,4
-1,310,4
-0,425,4
-1,303,4
-0,431,4
-1,312,4
-0,444,4
-1,312,4
-0,438,4
-1,320,4
 0,448,4
 1,312,4
-0,403,4
-1,298,4
-0,417,4
-1,306,4
-0,478,4
-1,310,4
-0,425,4
+0,464,4
 1,309,4
+0,440,4
+1,310,4
+0,471,4
+1,343,4
+0,430,4
+1,309,4
+0,441,4
+1,307,4
+0,431,4
+1,309,4
+0,467,4
+1,308,4
+0,450,4
+1,313,4
+0,435,4
+1,311,4
+0,436,4
+1,309,4
+0,436,4
+1,311,4
+0,433,4
+1,310,4
+0,434,4
+1,324,4
+0,421,4
+1,302,4
+0,440,4
+1,312,4
+0,414,4
+1,311,4

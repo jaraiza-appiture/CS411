@@ -1,80 +1,40 @@
-
-Rank=0: received message È from rank 4197712; Recv time 8 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 307 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 7 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 8 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 309 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 8 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 316 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 7 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 323 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 7 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 314 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 8 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 312 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 7 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 7 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 315 microseconds; size: 512
-
-Rank=0: received message È from rank 4197712; Recv time 7 microseconds; size: 512
-
-Rank=1: sent message T to rank 0; Send time 308 microseconds; size: 512
-0,443,512
-1,311,512
-0,443,512
-1,307,512
-0,461,512
-1,313,512
-0,466,512
-1,310,512
-0,424,512
-1,311,512
-0,445,512
-1,315,512
-0,242,512
-1,354,512
-0,404,512
+0,422,512
 1,304,512
+0,420,512
+1,303,512
+0,440,512
+1,313,512
+0,474,512
+1,312,512
+0,422,512
+1,302,512
+0,473,512
+1,313,512
+0,462,512
+1,313,512
+0,416,512
+1,299,512
+0,451,512
+1,314,512
+0,450,512
+1,309,512
+0,439,512
+1,311,512
+0,473,512
+1,326,512
+0,428,512
+1,306,512
 0,451,512
 1,310,512
-0,463,512
-1,311,512
-0,452,512
-1,311,512
-0,460,512
-1,313,512
-0,443,512
+0,421,512
 1,312,512
-0,424,512
-1,305,512
-0,413,512
+0,415,512
 1,300,512
-0,419,512
+0,432,512
 1,305,512
-0,423,512
-1,311,512
-0,439,512
-1,305,512
-0,452,512
-1,318,512
-0,454,512
-1,314,512
+0,453,512
+1,308,512
+0,455,512
+1,316,512
+0,460,512
+1,316,512

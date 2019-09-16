@@ -1,80 +1,40 @@
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 330 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 308 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 311 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 304 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 311 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 309 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 309 microseconds; size: 256
-
-Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 256
-
-Rank=1: sent message T to rank 0; Send time 306 microseconds; size: 256
+0,450,256
+1,311,256
 0,440,256
-1,311,256
-0,434,256
+1,310,256
+0,422,256
+1,307,256
+0,429,256
+1,316,256
+0,402,256
+1,303,256
+0,431,256
 1,313,256
-0,460,256
-1,318,256
-0,439,256
+0,455,256
 1,313,256
-0,457,256
-1,306,256
-0,445,256
-1,314,256
-0,441,256
-1,311,256
-0,455,256
-1,310,256
-0,455,256
+0,466,256
 1,318,256
-0,442,256
-1,311,256
-0,436,256
-1,312,256
-0,438,256
-1,311,256
-0,410,256
-1,301,256
-0,427,256
-1,311,256
-0,442,256
-1,309,256
-0,445,256
-1,311,256
-0,441,256
-1,314,256
-0,427,256
-1,310,256
-0,436,256
-1,310,256
-0,440,256
+0,390,256
 1,302,256
+0,433,256
+1,312,256
+0,413,256
+1,313,256
+0,407,256
+1,304,256
+0,401,256
+1,302,256
+0,419,256
+1,301,256
+0,448,256
+1,313,256
+0,446,256
+1,314,256
+0,441,256
+1,312,256
+0,460,256
+1,309,256
+0,423,256
+1,302,256
+0,411,256
+1,310,256
