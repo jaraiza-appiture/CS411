@@ -11,56 +11,62 @@ SBATCH --time=00:10:00
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
 mpicc -o proj_1_blocking proj_1_blocking.c -w
-n=1
+rm ./blocking_files/outAll.txt
 
 # continue until $n equals 1024
 # resource https://bash.cyberciti.biz/guide/While_loop
 # Doing 20 tests per byte size sent
+n=1
 while [ $n -le 4096 ]
 do
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt
-    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/out$n.txt 
+    m=1
+    while [ $m -le 80]
+    do
+        mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+        m=$((m+1))
+    done
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    # mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt 
 	n=$(( n*2 ))	 # increments $n
 done
-
 
 
 # for ((i=1;i<=5;i++)); do

@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-DATA_PATH = './blocking_files/outALL.txt'
+DATA_PATH = './outAll.txt'
 NET_DATA = {0:{}, 1:{}} # 0 = recv, 1 = send
 RECV = 0
 SEND = 1
@@ -36,6 +36,7 @@ def recv_graph():
     plt.xlabel('message size (bytes)')
     plt.ylabel('recv time (microseconds)')
     plt.errorbar(x_msg_size, y_time_avg, yerr=y_time_stddev, fmt='-o')
+    plt.show()
 
 def send_graph():
     """
@@ -53,6 +54,7 @@ def send_graph():
     plt.xlabel('message size (bytes)')
     plt.ylabel('send time (microseconds)')
     plt.errorbar(x_msg_size, y_time_avg, yerr=y_time_stddev, fmt='-o')
+    plt.show()
 
 if __name__ == '__main__':
     load_data()
