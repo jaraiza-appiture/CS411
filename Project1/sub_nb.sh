@@ -10,12 +10,12 @@ SBATCH --time=00:10:00
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
-mpicc -o proj_1_nonblocking proj_1_nonblocking.c
-
+mpicc -o proj_1_nonblocking proj_1_nonblocking.c -w
 n=1
 
 # continue until $n equals 1024
-#resource https://bash.cyberciti.biz/guide/While_loop
+# resource https://bash.cyberciti.biz/guide/While_loop
+# Doing 20 tests per byte size sent
 while [ $n -le 4096 ]
 do
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt   
@@ -28,6 +28,17 @@ do
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/out$n.txt
+
 	n=$(( n*2 ))	 # increments $n
 done
 
