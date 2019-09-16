@@ -17,7 +17,8 @@ def load_data():
 
         if not NET_DATA[int(rank)].get(int(msg_size), False):
             NET_DATA[int(rank)][int(msg_size)] = []
-
+        if int(time) < 0:
+            continue
         NET_DATA[int(rank)][int(msg_size)].append(int(time))
 
 def recv_graph():

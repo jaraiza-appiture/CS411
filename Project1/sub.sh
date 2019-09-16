@@ -17,7 +17,8 @@ rm ./blocking_files/outAll.txt
 # resource https://bash.cyberciti.biz/guide/While_loop
 # Doing 20 tests per byte size sent
 n=1
-while [ $n -le 8192 ]
+# while [ $n -le 8192 ]
+while [ $n -le 1024 ]
 do
     # m=1
     # while [ $m -le 10]
