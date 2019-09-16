@@ -18,7 +18,7 @@ rm ./blocking_files/outAll.txt
 # Doing 20 tests per byte size sent
 n=1
 # while [ $n -le 8192 ]
-while [ $n -le 2048 ]
+while [ $n -le 1024 ]
 do
     # m=1
     # while [ $m -le 10]
