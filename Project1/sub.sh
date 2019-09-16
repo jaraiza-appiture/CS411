@@ -20,7 +20,7 @@ n=1
 while [ $n -le 4096 ]
 do
     m=1
-    while [ $m -le 80]
+    while [ $m -le 10]
     do
         mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
         m=$((m+1))
