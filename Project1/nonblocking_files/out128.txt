@@ -1,0 +1,80 @@
+
+Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 307 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 315 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 311 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 312 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 301 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 315 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 7 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 310 microseconds; size: 128
+
+Rank=0: received message ( from rank 4197712; Recv time 8 microseconds; size: 128
+
+Rank=1: sent message T to rank 0; Send time 315 microseconds; size: 128
+0,430,128
+1,303,128
+0,418,128
+1,299,128
+0,436,128
+1,314,128
+0,448,128
+1,312,128
+0,467,128
+1,314,128
+0,468,128
+1,310,128
+0,447,128
+1,320,128
+0,434,128
+1,309,128
+0,425,128
+1,302,128
+0,419,128
+1,301,128
+0,423,128
+1,308,128
+0,425,128
+1,304,128
+0,421,128
+1,302,128
+0,426,128
+1,302,128
+0,432,128
+1,312,128
+0,426,128
+1,315,128
+0,424,128
+1,302,128
+0,437,128
+1,303,128
+0,426,128
+1,311,128
+0,431,128
+1,308,128

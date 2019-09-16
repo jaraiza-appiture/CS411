@@ -1,0 +1,80 @@
+
+Rank=0: received message ø from rank 4197712; Recv time 7 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 311 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 8 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 8 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 321 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 8 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 312 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 7 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 317 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 7 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 314 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 8 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 312 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 7 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 313 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 7 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 314 microseconds; size: 64
+
+Rank=0: received message ø from rank 4197712; Recv time 8 microseconds; size: 64
+
+Rank=1: sent message T to rank 0; Send time 305 microseconds; size: 64
+0,441,64
+1,311,64
+0,410,64
+1,302,64
+0,441,64
+1,312,64
+0,437,64
+1,312,64
+0,436,64
+1,311,64
+0,427,64
+1,305,64
+0,421,64
+1,301,64
+0,421,64
+1,302,64
+0,440,64
+1,313,64
+0,491,64
+1,311,64
+0,451,64
+1,312,64
+0,396,64
+1,312,64
+0,426,64
+1,303,64
+0,443,64
+1,301,64
+0,421,64
+1,304,64
+0,434,64
+1,310,64
+0,447,64
+1,311,64
+0,423,64
+1,303,64
+0,432,64
+1,309,64
+0,428,64
+1,303,64
