@@ -17,7 +17,7 @@ rm ./blocking_files/outAll.txt
 # resource https://bash.cyberciti.biz/guide/While_loop
 # Doing 20 tests per byte size sent
 n=1
-while [ $n -le 1024 ]
+while [ $n -le 8192 ]
 do
     # m=1
     # while [ $m -le 10]
@@ -106,7 +106,7 @@ do
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt 
 	
-    n=$(( n+32 ))	 # increments $n
+    n=$(( n*2 ))	 # increments $n
 done
 
 
