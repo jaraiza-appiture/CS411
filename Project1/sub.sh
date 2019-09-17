@@ -45,6 +45,66 @@ do
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
+    mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt
     mpirun -np 2 ./proj_1_blocking $n >> ./blocking_files/outAll.txt 
 	
     n=$(( n*2 ))	 # increments $n
