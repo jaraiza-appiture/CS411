@@ -1,0 +1,2 @@
+Send latency: 309.8539594053745
+Recv Latency: 431.26328125 Recv Linear Regression slope: [[0.0299142]]
