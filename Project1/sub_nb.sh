@@ -40,6 +40,69 @@ do
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
     mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt
+    mpirun -np 2 ./proj_1_nonblocking $n >> ./nonblocking_files/result_nb.txt   
 
 	n=$(( n*2 ))	 # increments $n
 done
