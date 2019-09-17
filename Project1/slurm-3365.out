@@ -1,0 +1,4 @@
+/tmp/slurmd/job03365/slurm_script: 7: /tmp/slurmd/job03365/slurm_script: SBATCH: not found
+slurmd[n0000]: error: *** JOB 3365 CANCELLED AT 2019-09-16T18:47:44 ***
+mpirun: killing job...
+
