@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-DATA_PATH = './outAll.txt'
+DATA_PATH = './out_4mb.txt'
 NET_DATA = {0:{}, 1:{}} # 0 = recv, 1 = send
 RECV = 0
 SEND = 1
