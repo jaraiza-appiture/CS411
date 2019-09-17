@@ -11,11 +11,6 @@ NET_DATA = {0:{}, 1:{}} # 0 = recv, 1 = send
 RECV = 0
 SEND = 1
 
-if BLOCK:
-    OUT_F = open('./blocking_files/results.txt', 'w')
-else:
-    OUT_F = open('./nonblocking_files/results.txt', 'w')
-
 def load_data():
     """
     loads network data collectd
@@ -54,9 +49,9 @@ def recv_graph():
     plt.errorbar(x_msg_size, y_time_avg, yerr=y_time_stddev, fmt='o-b', ecolor='r')
     #plt.show()
     if BLOCK:
-        plt.savefig('recv_plot.png')
+        plt.savefig('./blocking_files/recv_plot.png')
     else:
-        plt.savefig('../nonblocking_files/recv_plot.png')
+        plt.savefig('./nonblocking_files/recv_plot.png')
     
     plt.show()
     # split
@@ -66,7 +61,7 @@ def recv_graph():
     post_msg_size = []
 
     for i, size in enumerate(x_msg_size):
-        if size < 256:
+        if size < 512:
             pre_time_avg.append(y_time_avg[i])
             pre_msg_size.append(size)
         else:
@@ -100,9 +95,9 @@ def send_graph():
     plt.ylabel('send time (microseconds)')
     plt.errorbar(x_msg_size, y_time_avg, yerr=y_time_stddev, fmt='o-b', ecolor='r')
     if BLOCK:
-        plt.savefig('send_plot.png')
+        plt.savefig('./blocking_files/send_plot.png')
     else:
-        plt.savefig('../nonblocking_files/send_plot.png')
+        plt.savefig('./nonblocking_files/send_plot.png')
     #plt.show()
     # split
     pre_time_avg = []
@@ -111,7 +106,7 @@ def send_graph():
     post_msg_size = []
 
     for i, size in enumerate(x_msg_size):
-        if size < 1000:
+        if size < 131072:
             pre_time_avg.append(y_time_avg[i])
             pre_msg_size.append(size)
         else:
@@ -124,6 +119,12 @@ def send_graph():
     print('Send Latency:', latency, 'Send Linear Regression slope:', reg.coef_, file=OUT_F)
 
 if __name__ == '__main__':
+
+    if BLOCK:
+        OUT_F = open('./blocking_files/results.txt', 'w')
+    else:
+        OUT_F = open('./nonblocking_files/results.txt', 'w')
+
     load_data()
     send_graph()
     recv_graph()
