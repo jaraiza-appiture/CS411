@@ -42,7 +42,7 @@ int MyReduce(int array[], int size, int rank, int procs)
     int buddy = 0, sum_buddy = 0;
     int sum = operationSum(array, size);
     int time_steps = (int)ceil(log2((double)procs)) -1;
-    int t = 1, x = 0, k = 0;
+    int t = 1, k = 0;
     MPI_Status status;
 
     for(k = 0; k <= time_steps; k++)
@@ -87,7 +87,6 @@ int main(int argc,char *argv[])
     
     time_t t;
     srand((unsigned)time(&t));
-    
     
     if(rank == root) // make array of given size
     {
