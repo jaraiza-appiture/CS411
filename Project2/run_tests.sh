@@ -11,5 +11,5 @@ SBATCH --time=00:10:00
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
 mpicc -o reduction reduction.c -w -lm
-
+rm results.csv
 mpirun -np 2 ./reduction 4 >> results.csv
