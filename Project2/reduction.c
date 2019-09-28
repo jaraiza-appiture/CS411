@@ -15,7 +15,7 @@ int *GenerateArray(int size)
 {
     int *arr = malloc(sizeof(int)*size);
     int i = 0;
-    for(i=0; i < size; i++)
+    for(i = 0; i < size; i++)
     {
         arr[i] = rand();
     }
@@ -26,8 +26,8 @@ int *GenerateArray(int size)
 int operationSum(int array[], int size)
 {
 
-    int sum = 0;
-    for(int i = 0; i < size; i++)
+    int sum = 0, i = 0;
+    for(i = 0; i < size; i++)
     {
         sum = sum + array[i];
     }
