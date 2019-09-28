@@ -15,10 +15,13 @@ int *GenerateArray(int size)
 {
     int *arr = malloc(sizeof(int)*size);
     int i = 0;
+    printf("array generated: ")
     for(i = 0; i < size; i++)
     {
         arr[i] = rand();
+        printf("%d ", arr[i]);
     }
+    printf("\n");
 
     return arr;
 }
