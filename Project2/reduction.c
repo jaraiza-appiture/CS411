@@ -5,6 +5,12 @@
 #include <assert.h>
 #include <sys/time.h>
 
+int elapsedTime(struct timeval t1, struct timeval t2)
+{
+    // returns elapsed time in microseconds
+    return (t2.tv_sec-t1.tv_sec)*10000 + (t2.tv_usec-t1.tv_usec);
+}
+
 int *GenerateArray(int size)
 {
     int *arr = malloc(sizeof(int)*size);
@@ -89,12 +95,19 @@ int main(int argc,char *argv[])
     int * sub_arr = malloc(sizeof(int) * items_per_proc);
 
     MPI_Scatter(arr, items_per_proc, MPI_INT, sub_arr, items_per_proc, MPI_INT, root, MPI_COMM_WORLD);
-
-    // MPI_Bcast(arr, size, MPI_INT, root, MPI_COMM_WORLD); // broadcast to all procs
-
-    // MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before starting reduction
     
+    MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
+    gettimeofday(&t1, NULL);
     MyReduce(sub_arr, items_per_proc, rank, p);
+    MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
+    gettimeofday(&t2, NULL);
+    int time_reduce = elapsedTime(t1, t2);
+
+    if(rank == root)
+    {
+        // time of execution,num procs,array size 
+        printf("%d,%d,%d\n", time_reduce, p, size);
+    }
 
     MPI_Finalize();
 }
