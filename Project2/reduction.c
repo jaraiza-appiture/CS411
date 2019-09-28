@@ -14,8 +14,8 @@ int elapsedTime(struct timeval t1, struct timeval t2)
 int *GenerateArray(int size)
 {
     int *arr = malloc(sizeof(int)*size);
-
-    for(int i=0; i < size; i++)
+    int i = 0;
+    for(i=0; i < size; i++)
     {
         arr[i] = rand();
     }
@@ -58,10 +58,11 @@ int MyReduce(int array[], int size, int rank, int procs)
         }
     }
 
-    if(rank == (p-1))
-    {
-        printf("[Proc %d] sum is %d", p, sum);
-    }
+    // if(rank == (procs-1))
+    // {
+    //     printf("[Proc %d] sum is %d", rank, sum);
+    // }
+    return sum;
 }
 
 int main(int argc,char *argv[])
@@ -98,7 +99,7 @@ int main(int argc,char *argv[])
     
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
     gettimeofday(&t1, NULL);
-    MyReduce(sub_arr, items_per_proc, rank, p);
+    int sum = MyReduce(sub_arr, items_per_proc, rank, p);
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
     gettimeofday(&t2, NULL);
     int time_reduce = elapsedTime(t1, t2);
@@ -106,7 +107,7 @@ int main(int argc,char *argv[])
     if(rank == root)
     {
         // time of execution,num procs,array size 
-        printf("%d,%d,%d\n", time_reduce, p, size);
+        printf("%d,%d,%d,%d\n", time_reduce, p, size, sum);
     }
 
     MPI_Finalize();
