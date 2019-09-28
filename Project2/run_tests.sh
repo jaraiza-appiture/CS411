@@ -10,6 +10,6 @@ SBATCH --time=00:10:00
 #MPI helloworld example - this line is a comment
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
-mpicc -o reduction reduction.c -w
+mpicc -o reduction reduction.c -w -lm
 
 mpirun -np 2 ./reduction 4 >> results.csv
