@@ -82,7 +82,7 @@ int MPILibReduce(int array[], int size, int rank, int procs)
     int t = 1, x = 0, k = 0;
     MPI_Status status;
     int global_sum;
-    MPI_Allreduce(&sum, &global_sum, 1,  MPI_INT, MPI_SUM, MPI_COMM_WORLD)
+    MPI_Allreduce(&sum, &global_sum, 1,  MPI_INT, MPI_SUM, MPI_COMM_WORLD);
     return global_sum;
 }
 
@@ -164,7 +164,7 @@ int main(int argc,char *argv[])
     if(rank == p-1)
     {
         // myreduce_time,mynaive_time,mpireduce_time,num_procs,array_size,sum 
-        printf("%d,%d,%d,%d,%d,%d\n", time_reduce,time_mynaive, time_mpireduce, p, size, sum_my_reduce);
+        printf("%d,%d,%d,%d,%d,%d\n", time_myreduce,time_mynaive, time_mpireduce, p, size, sum_my_reduce);
     }
 
     MPI_Finalize();
