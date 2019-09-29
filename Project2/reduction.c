@@ -19,9 +19,7 @@ int *GenerateArray(int size)
     for(i = 0; i < size; i++)
     {
         arr[i] = rand() % 1001;
-        printf("%d ", arr[i]);
     }
-    printf("\n");
 
     return arr;
 }
@@ -134,7 +132,7 @@ int main(int argc,char *argv[])
     }
 
     int items_per_proc = size / p;
-    printf("items per proc: %d\n", items_per_proc);
+
     int * sub_arr = malloc(sizeof(int) * items_per_proc);
 
     MPI_Scatter(arr, items_per_proc, MPI_INT, sub_arr, items_per_proc, MPI_INT, root, MPI_COMM_WORLD);
