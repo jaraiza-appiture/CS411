@@ -18,7 +18,7 @@ int *GenerateArray(int size)
     printf("array generated: ");
     for(i = 0; i < size; i++)
     {
-        arr[i] = rand();
+        arr[i] = rand() % 1001;
         printf("%d ", arr[i]);
     }
     printf("\n");
@@ -54,6 +54,7 @@ int MyReduce(int array[], int size, int rank, int procs)
         {
             MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
             sum = sum + sum_buddy;
+            printf("Proc: %d Sum: %d Sum_buddy: %d\n", rank, sum, sum_buddy);
         }
         else
         {
@@ -94,11 +95,17 @@ int main(int argc,char *argv[])
     }
 
     int items_per_proc = size / p;
-    
+    printf("items per proc: %d\n", items_per_proc);
     int * sub_arr = malloc(sizeof(int) * items_per_proc);
 
     MPI_Scatter(arr, items_per_proc, MPI_INT, sub_arr, items_per_proc, MPI_INT, root, MPI_COMM_WORLD);
-    
+    int i = 0;
+    printf("Proc: %d\n",rank);
+    for(i =0 ; i < items_per_proc; i++)
+    {
+        printf("%d ",sub_arr[i]);
+    }
+    printf("\n");
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
     gettimeofday(&t1, NULL);
     int sum = MyReduce(sub_arr, items_per_proc, rank, p);
