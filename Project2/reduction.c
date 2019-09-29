@@ -37,6 +37,20 @@ int operationSum(int array[], int size)
     return sum;
 }
 
+int operationMax(int array[], int size)
+{
+
+    int max = -1, i = 0;
+    for(i = 0; i < size; i++)
+    {
+        if(max < array[i])
+        {
+            max = array[i];
+        }
+    }
+    return max;
+}
+
 int MyReduce(int array[], int size, int rank, int procs)
 {
     int buddy = 0, sum_buddy = 0;
@@ -52,24 +66,8 @@ int MyReduce(int array[], int size, int rank, int procs)
 
         MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
         sum = sum + sum_buddy;
-        printf("Proc: %d Sum: %d Sum_buddy: %d\n", rank, sum, sum_buddy);
-        // if(buddy < rank)
-        // {
-            
-        //     printf("Proc: %d Sum: %d Sum_buddy: %d\n", rank, sum, sum_buddy);
-        // }
-        // else
-        // {
-        //     MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
-        //     MPI_Send(&sum, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD);
-        //     printf("Proc: %d Sum: %d\n", rank, sum);
-        // }
     }
 
-    // if(rank == (procs-1))
-    // {
-    //     printf("[Proc %d] sum is %d", rank, sum);
-    // }
     return sum;
 }
 
@@ -103,24 +101,35 @@ int main(int argc,char *argv[])
     int * sub_arr = malloc(sizeof(int) * items_per_proc);
 
     MPI_Scatter(arr, items_per_proc, MPI_INT, sub_arr, items_per_proc, MPI_INT, root, MPI_COMM_WORLD);
-    int i = 0;
-    printf("Proc: %d\n",rank);
-    for(i =0 ; i < items_per_proc; i++)
-    {
-        printf("%d ",sub_arr[i]);
-    }
-    printf("\n");
+
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
     gettimeofday(&t1, NULL);
-    int sum = MyReduce(sub_arr, items_per_proc, rank, p);
+    int sum_my_reduce = MyReduce(sub_arr, items_per_proc, rank, p);
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
     gettimeofday(&t2, NULL);
-    int time_reduce = elapsedTime(t1, t2);
+    int time_myreduce = elapsedTime(t1, t2);
 
-    if(rank == root)
+    MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
+    gettimeofday(&t1, NULL);
+    int sum_my_naive = MyNaive(sub_arr, items_per_proc, rank, p);
+    MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
+    gettimeofday(&t2, NULL);
+    int time_mynaive = elapsedTime(t1, t2);
+
+    MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
+    gettimeofday(&t1, NULL);
+    int sum_mpi_reduce = MPILibReduce(sub_arr, items_per_proc, rank, p);
+    MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
+    gettimeofday(&t2, NULL);
+    int time_mpireduce = elapsedTime(t1, t2);
+
+    assert(sum_my_reduce == sum_my_naive);
+    assert(sum_my_reduce == sum_mpi_reduce);
+
+    if(rank == p-1)
     {
-        // time of execution,num procs,array size 
-        printf("%d,%d,%d,%d\n", time_reduce, p, size, sum);
+        // myreduce_time,mynaive_time,mpireduce_time,num_procs,array_size,sum 
+        printf("%d,%d,%d,%d,%d,%d\n", time_reduce,time_mynaive, time_mpireduce, p, size, sum_my_reduce);
     }
 
     MPI_Finalize();
