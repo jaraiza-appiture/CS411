@@ -50,16 +50,20 @@ int MyReduce(int array[], int size, int rank, int procs)
         buddy = rank ^ t; // XOR flipping operator
         t << 1; // double num
 
-        if(buddy < rank)
-        {
-            MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
-            sum = sum + sum_buddy;
-            printf("Proc: %d Sum: %d Sum_buddy: %d\n", rank, sum, sum_buddy);
-        }
-        else
-        {
-            MPI_Send(&sum, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD);
-        }
+        MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
+        sum = sum + sum_buddy;
+        printf("Proc: %d Sum: %d Sum_buddy: %d\n", rank, sum, sum_buddy);
+        // if(buddy < rank)
+        // {
+            
+        //     printf("Proc: %d Sum: %d Sum_buddy: %d\n", rank, sum, sum_buddy);
+        // }
+        // else
+        // {
+        //     MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
+        //     MPI_Send(&sum, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD);
+        //     printf("Proc: %d Sum: %d\n", rank, sum);
+        // }
     }
 
     // if(rank == (procs-1))
