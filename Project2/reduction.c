@@ -158,11 +158,11 @@ int main(int argc,char *argv[])
     gettimeofday(&t2, NULL);
     int time_mpireduce = elapsedTime(t1, t2);
 
-    assert(sum_my_reduce == sum_my_naive);
-    assert(sum_my_reduce == sum_mpi_reduce);
-
     if(rank == p-1)
     {
+        assert(sum_my_reduce == sum_my_naive);
+        assert(sum_my_reduce == sum_mpi_reduce);
+
         // myreduce_time,mynaive_time,mpireduce_time,num_procs,array_size,sum 
         printf("%d,%d,%d,%d,%d,%d\n", time_myreduce,time_mynaive, time_mpireduce, p, size, sum_my_reduce);
     }
