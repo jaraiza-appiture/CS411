@@ -50,6 +50,43 @@ int operationMax(int array[], int size)
     }
     return max;
 }
+int MyNaive(int array[], int size, int rank, int procs)
+{
+    int buddy = 0, sum_buddy = 0;
+    int sum = operationSum(array, size);
+    int t = 1, x = 0, k = 0;
+    MPI_Status status;
+
+    
+
+    if(rank > 0 )
+    {
+        MPI_Recv(&sum_buddy, 1, MPI_INT, rank-1, 0, MPI_COMM_WORLD, &status);
+        sum = sum + sum_buddy ;
+    }
+    if (rank < (procs-1) )
+    {
+        MPI_Send(&sum, 1, MPI_INT, rank+1, 0, MPI_COMM_WORLD);
+    }
+
+
+    // if(rank == (procs-1))
+    // {
+    //     printf("[Proc %d] sum is %d", rank, sum);
+    // }
+    return sum;
+}
+
+int MPILibReduce(int array[], int size, int rank, int procs)
+{
+    int buddy = 0, sum_buddy = 0;
+    int sum = operationSum(array, size);
+    int t = 1, x = 0, k = 0;
+    MPI_Status status;
+    int global_sum;
+    MPI_Allreduce(&sum, &global_sum, 1,  MPI_INT, MPI_SUM, MPI_COMM_WORLD)
+    return global_sum;
+}
 
 int MyReduce(int array[], int size, int rank, int procs)
 {
