@@ -140,7 +140,7 @@ int main(int argc,char *argv[])
     {
         size = atoi(argv[1]);
     }
-    assert(p >= 2);
+    assert(p >= 1);
     
     time_t t;
     srand((unsigned)time(&t));
