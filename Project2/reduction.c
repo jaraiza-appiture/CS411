@@ -179,13 +179,14 @@ int main(int argc,char *argv[])
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
     gettimeofday(&t2, NULL);
     int time_mpireduce = elapsedTime(t1, t2);
-    printf("sum_my_reduce   %d\n", sum_my_reduce);
-    printf("sum_my_naive    %d\n", sum_my_naive);
-    printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
     
 
     if(rank == p-1)
     {
+            printf("sum_my_reduce   %d\n", sum_my_reduce);
+    printf("sum_my_naive    %d\n", sum_my_naive);
+    printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
+
         assert(sum_my_reduce == sum_my_naive);
         assert(sum_my_reduce == sum_mpi_reduce);
 
