@@ -71,7 +71,7 @@ int MyNaive(int array[], int size, int rank, int procs)
     if (rank == (procs-1) )
     {
         MPI_Recv(&sum_buddy,4,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
-        // sum = sum + sum_buddy ;
+        sum = sum + sum_buddy ;
 
     }
     	
