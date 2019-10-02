@@ -13,7 +13,7 @@ SBATCH --time=00:10:00
 mpicc -o reduction reduction.c -w -lm
 rm results.csv
 n=1000
-mpirun -np 16 ./reduction 1000 >> results.csv        
+mpirun -np 4 ./reduction 1000 >> results.csv        
 
 # while [ $n -le 1024000 ]    
 # do
