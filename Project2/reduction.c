@@ -183,11 +183,11 @@ int main(int argc,char *argv[])
 
     if(rank == p-1)
     {
-        printf("sum_my_reduce   %d\n", sum_my_reduce);
-        printf("sum_my_naive    %d\n", sum_my_naive);
-        printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
+        // printf("sum_my_reduce   %d\n", sum_my_reduce);
+        // printf("sum_my_naive    %d\n", sum_my_naive);
+        // printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
 
-        // assert(sum_my_reduce == sum_my_naive);
+        assert(sum_my_reduce == sum_my_naive);
         assert(sum_my_naive == sum_mpi_reduce);
 
         // myreduce_time,mynaive_time,mpireduce_time,num_procs,array_size,sum 
