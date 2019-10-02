@@ -135,9 +135,10 @@ int main(int argc,char *argv[])
     if(rank == root) // make array of given size
     {
         arr = GenerateArray(size);
+        int i;
         for(i = 0; i < size; i++)
         {
-        printf("%d,", arr[i]);
+        printf("%d\n", arr[i]);
         }
 
     }
