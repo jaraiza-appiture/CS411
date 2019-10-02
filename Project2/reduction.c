@@ -58,24 +58,24 @@ int MyNaive(int array[], int size, int rank, int procs)
     
     if (rank == 0)
     {
-        MPI_Send(&sum,1,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
+        MPI_Send(&sum,4,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
     }
 
     if(rank > 0 && rank < procs-1 )
     {
-        MPI_Recv(&sum_buddy, 1, MPI_INT, rank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        MPI_Recv(&sum_buddy, 4, MPI_INT, rank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
         sum = sum + sum_buddy ;
-        MPI_Send(&sum,1,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
+        MPI_Send(&sum,4,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
 
     }
     if (rank == (procs-1) )
     {
-        MPI_Recv(&sum_buddy,1,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
-        sum = sum + sum_buddy ;
+        MPI_Recv(&sum_buddy,4,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
+        // sum = sum + sum_buddy ;
 
     }
     	
-    MPI_Finalize();
+    // MPI_Finalize();
 
 
     return sum;
