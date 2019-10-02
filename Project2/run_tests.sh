@@ -21,7 +21,7 @@ do
     # mpirun -np 4 ./reduction $n >> results.csv        
     # mpirun -np 8 ./reduction $n >> results.csv        
     mpirun -np 16 ./reduction $n >> results.csv        
-    mpirun -np 32 ./reduction $n >> results.csv        
-    mpirun -np 64 ./reduction $n >> results.csv        
+    # mpirun -np 32 ./reduction $n >> results.csv        
+    # mpirun -np 64 ./reduction $n >> results.csv        
     n=$(( n*2 ))     # increments $n
 done
