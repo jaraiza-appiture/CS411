@@ -17,8 +17,8 @@ int *GenerateArray(int size)
     int i = 0;
     for(i = 0; i < size; i++)
     {
-        arr[i] = rand();
-        printf("%d\n", arr[i]);
+        arr[i] = rand()% 1001;
+        // printf("%d\n", arr[i]);
 
     }
 
@@ -187,11 +187,11 @@ int main(int argc,char *argv[])
     printf("sum_my_naive    %d\n", sum_my_naive);
     printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
 
-        assert(sum_my_reduce == sum_my_naive);
-        assert(sum_my_reduce == sum_mpi_reduce);
+        // assert(sum_my_reduce == sum_my_naive);
+        assert(sum_my_naive == sum_mpi_reduce);
 
         // myreduce_time,mynaive_time,mpireduce_time,num_procs,array_size,sum 
-        printf("%d,%d,%d,%d,%d,%d\n", time_myreduce,time_mynaive, time_mpireduce, p, size, sum_my_reduce);
+        printf("%d,%d,%d,%d,%d,%d\n", time_myreduce,time_mynaive, time_mpireduce, p, size, sum_my_naive);
     }
 
     MPI_Finalize();
