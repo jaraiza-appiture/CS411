@@ -12,4 +12,12 @@ SBATCH --time=00:10:00
 #this command will run the job on 8 processes.
 mpicc -o reduction reduction.c -w -lm
 rm results.csv
-mpirun -np 2 ./reduction 4 >> results.csv
+n=1
+for i in 1 2 4 8 16 32 64
+do
+    while [ $n -le 100 ]
+    do
+        mpirun -np $i ./reduction $n >> results.csv        
+        n=$(( n*2 ))     # increments $n
+    done
+done
