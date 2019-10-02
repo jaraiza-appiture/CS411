@@ -116,7 +116,7 @@ int MyReduce(int array[], int size, int rank, int procs)
     for(k = 0; k <= time_steps; k++)
     {
         buddy = rank ^ t; // XOR flipping operator
-        t << 1; // double num
+        t = t << 1; // double num
 
         MPI_Sendrecv(&sum, 1, MPI_INT, buddy, 0, &sum_buddy, 1, MPI_INT, buddy, 0, MPI_COMM_WORLD, &status);
         sum = sum + sum_buddy;
@@ -140,7 +140,7 @@ int main(int argc,char *argv[])
     {
         size = atoi(argv[1]);
     }
-    assert(p >= 1);
+    assert(p >= 2);
     
     time_t t;
     srand((unsigned)time(&t));
@@ -183,9 +183,9 @@ int main(int argc,char *argv[])
 
     if(rank == p-1)
     {
-            printf("sum_my_reduce   %d\n", sum_my_reduce);
-    printf("sum_my_naive    %d\n", sum_my_naive);
-    printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
+        printf("sum_my_reduce   %d\n", sum_my_reduce);
+        printf("sum_my_naive    %d\n", sum_my_naive);
+        printf("sum_mpi_reduce  %d\n\n", sum_mpi_reduce);
 
         // assert(sum_my_reduce == sum_my_naive);
         assert(sum_my_naive == sum_mpi_reduce);
