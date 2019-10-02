@@ -58,24 +58,35 @@ int MyNaive(int array[], int size, int rank, int procs)
     MPI_Status status;
 
     
-    if (rank == 0)
+    if(rank > 0 )
     {
-        MPI_Send(&sum,4,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
-    }
-
-    if(rank > 0 && rank < procs-1 )
-    {
-        MPI_Recv(&sum_buddy, 4, MPI_INT, rank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        MPI_Recv(&sum_buddy, 1, MPI_INT, rank-1, 0, MPI_COMM_WORLD, &status);
         sum = sum + sum_buddy ;
-        MPI_Send(&sum,4,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
-
     }
-    if (rank == (procs-1) )
+    if (rank < (procs-1) )
     {
-        MPI_Recv(&sum_buddy,4,MPI_INT,rank -1 ,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
-        sum = sum + sum_buddy ;
-
+        MPI_Send(&sum, 1, MPI_INT, rank+1, 0, MPI_COMM_WORLD);
     }
+
+
+    // if (rank == 0)
+    // {
+    //     MPI_Send(&sum,4,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
+    // }
+
+    // if(rank > 0 && rank < procs-1 )
+    // {
+    //     MPI_Recv(&sum_buddy, 4, MPI_INT, rank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+    //     sum = sum + sum_buddy ;
+    //     MPI_Send(&sum,4,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
+
+    // }
+    // if (rank == (procs-1) )
+    // {
+    //     MPI_Recv(&sum_buddy,4,MPI_INT,rank -1 ,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
+    //     sum = sum + sum_buddy ;
+
+    // }
     	
     // MPI_Finalize();
 
