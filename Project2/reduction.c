@@ -17,7 +17,7 @@ int *GenerateArray(int size)
     int i = 0;
     for(i = 0; i < size; i++)
     {
-        arr[i] = rand() % 1001;
+        arr[i] = rand();
     }
 
     return arr;
