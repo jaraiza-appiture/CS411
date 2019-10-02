@@ -17,7 +17,9 @@ int *GenerateArray(int size)
     int i = 0;
     for(i = 0; i < size; i++)
     {
-        arr[i] = rand();
+        arr[i] = rand() %2;
+        printf("%d\n", arr[i]);
+
     }
 
     return arr;
@@ -135,11 +137,7 @@ int main(int argc,char *argv[])
     if(rank == root) // make array of given size
     {
         arr = GenerateArray(size);
-        int i;
-        for(i = 0; i < size; i++)
-        {
-        printf("%d\n", arr[i]);
-        }
+        
 
     }
 
