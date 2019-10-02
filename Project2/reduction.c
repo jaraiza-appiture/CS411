@@ -49,28 +49,35 @@ int operationMax(int array[], int size)
 }
 int MyNaive(int array[], int size, int rank, int procs)
 {
+    
     int buddy = 0, sum_buddy = 0;
     int sum = operationSum(array, size);
     int t = 1, x = 0, k = 0;
     MPI_Status status;
 
     
-
-    if(rank > 0 )
+    if (rank == 0)
     {
-        MPI_Recv(&sum_buddy, 1, MPI_INT, rank-1, 0, MPI_COMM_WORLD, &status);
+        MPI_Send(&sum,1,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
+    }
+
+    if(rank > 0 && rank < procs-1 )
+    {
+        MPI_Recv(&sum_buddy, 1, MPI_INT, rank-1, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
         sum = sum + sum_buddy ;
+        MPI_Send(&sum,1,MPI_INT,rank + 1,0,MPI_COMM_WORLD);
+
     }
-    if (rank < (procs-1) )
+    if (rank == (procs-1) )
     {
-        MPI_Send(&sum, 1, MPI_INT, rank+1, 0, MPI_COMM_WORLD);
+        MPI_Recv(&sum_buddy,1,MPI_INT,MPI_ANY_SOURCE,MPI_ANY_TAG,MPI_COMM_WORLD,&status);
+        sum = sum + sum_buddy ;
+
     }
+    	
+    MPI_Finalize();
 
 
-    // if(rank == (procs-1))
-    // {
-    //     printf("[Proc %d] sum is %d", rank, sum);
-    // }
     return sum;
 }
 
