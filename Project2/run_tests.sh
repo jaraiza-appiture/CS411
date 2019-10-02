@@ -16,10 +16,10 @@ n=1000
 
 while [ $n -le 1024000 ]    
 do
-    mpirun -np 1 ./reduction $n >> results.csv
-    mpirun -np 2 ./reduction $n >> results.csv        
-    mpirun -np 4 ./reduction $n >> results.csv        
-    mpirun -np 8 ./reduction $n >> results.csv        
+    # mpirun -np 1 ./reduction $n >> results.csv
+    # mpirun -np 2 ./reduction $n >> results.csv        
+    # mpirun -np 4 ./reduction $n >> results.csv        
+    # mpirun -np 8 ./reduction $n >> results.csv        
     mpirun -np 16 ./reduction $n >> results.csv        
     mpirun -np 32 ./reduction $n >> results.csv        
     mpirun -np 64 ./reduction $n >> results.csv        
