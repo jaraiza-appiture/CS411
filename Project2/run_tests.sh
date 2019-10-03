@@ -15,7 +15,7 @@ rm results.csv
 n=1000
 # mpirun -np 4 ./reduction 4 >> results.csv        
 
-while [ $n -le 2000000 ]    
+while [ $n -le 2048000 ]    
 do
     mpirun -np 1 ./reduction $n >> results.csv
     mpirun -np 1 ./reduction $n >> results.csv
