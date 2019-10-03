@@ -11,4 +11,15 @@ def load_data(filename):
         if not data[procs].get(elements, False):
             data[procs][elements] = []
         data[procs][elements].append((myreduce_time, mynaive_time, mpireduce_time, op_output))
-                
+    in_file.close()
+    
+    return data
+
+def speed_up(serial_time, parallel_time):
+    pass
+
+def efficiency(speedUp, procs):
+    pass
+
+def parallel_time():
+    pass
