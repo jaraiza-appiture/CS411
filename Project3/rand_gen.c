@@ -28,7 +28,7 @@ int **init_matrix(int rows, int columns)
     int i; 
     int **mat = (int **)malloc(rows * sizeof(int *)); 
 
-    for (i=0; i < rows; i++)
+    for (i = 0; i < rows; i++)
          mat[i] = (int *)malloc(columns * sizeof(int));
     
     return mat;
@@ -64,7 +64,9 @@ void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **r
         {
             temp[i][j] = 0;
             for(k = 0; k<c_x; ++k)
+            {
                 temp[i][j] += x[i][k] * y[k][j];
+            }
         }
     }
 
@@ -75,12 +77,12 @@ void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **r
     dealloc_matrix(temp, r_x, c_y);
 }
 
-int * serial_matrix(int n, int A, int B, int P, int seed)
+int *serial_matrix(int n, int A, int B, int P, int seed)
 {
     int x_cur = 1, x_prev = 0, i;
     int **M = init_M(A, B), **M_next = init_M(A, B);
     int **xi_1 = init_matrix(1, 2), **x0_1 = init_matrix(1, 2);
-    int *arr = malloc(sizeof(int) * n);
+    int *arr = malloc(sizeofmatrix(int) * n);
     
     x0_1[0][0] = seed, x0_1[0][1] = 1;
     arr[0] = seed;
@@ -113,6 +115,7 @@ int main(int argc,char *argv[])
         P = atoi(argv[4]);
         seed = atoi(argv[5]);
     }
+    printf("P: %d\n", P);
     assert(p >= 1);
     
     time_t t;
