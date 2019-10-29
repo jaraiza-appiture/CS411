@@ -100,10 +100,11 @@ void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
 
 int *serial_matrix(int n, int A, int B, int P, int seed)
 {
-    int x_cur = 1, x_prev = 0, i;
+    int i;
     int M[2][2], M_next[2][2];
     init_M(M, A, B);
     init_M(M_next, A, B);
+    printf("M[0][0]: %d\n", M[0][0]);
     int xi_1[1][2], x0_1[1][2];
     int *arr = malloc(sizeof(int) * n);
     
