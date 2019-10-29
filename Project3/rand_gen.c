@@ -77,7 +77,7 @@ void mat_mul_x0_M_x1_p(int x0[1][2], int M[2][2], int x1[1][2], int P)
 void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
 {
     int i, j, k;
-    int temp[1][2];
+    int temp[2][2];
 
     for(i = 0; i<2; ++i)
     {
