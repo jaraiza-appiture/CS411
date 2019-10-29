@@ -43,48 +43,68 @@ void dealloc_matrix(int **mat, int rows, int columns)
     free(mat);
 }
 
-int **init_M(int A, int B)
+void init_M(int M[2][2], int A, int B)
 {
-    int **M = init_matrix(2, 2);
-
     M[0][0] = A; M[0][1] = 0;
     M[1][0] = B; M[1][1] = 1;
-
-    return M;
 }
 
-void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **result, int P)
+void mat_mul_x0_M_x1_p(int x0[1][2], int M[2][2], int x1[1][2], int P)
 {
     int i, j, k;
-    int **temp = init_matrix(r_x, c_y);
+    int temp[1][2];
 
-    for(i = 0; i<r_x; ++i)
+    for(i = 0; i<1; ++i)
     {
-        for(j = 0; j<c_y; ++j)
+        for(j = 0; j<2; ++j)
         {
             temp[i][j] = 0;
-            for(k = 0; k<c_x; ++k)
-                temp[i][j] += x[i][k] * y[k][j];
+            for(k = 0; k<2; ++k)
+                temp[i][j] += x0[i][k] * M[k][j];
         }
     }
 
-    for(i = 0; i<r_x; ++i)
+    for(i = 0; i<1; ++i)
     {
-        for(j = 0; j<c_y; ++j)
+        for(j = 0; j<2; ++j)
         {
             result[i][j] = temp[i][j] % P;
         }
     }
-    
+}
 
-    dealloc_matrix(temp, r_x, c_y);
+
+void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
+{
+    int i, j, k;
+    int temp[1][2];
+
+    for(i = 0; i<2; ++i)
+    {
+        for(j = 0; j<2; ++j)
+        {
+            temp[i][j] = 0;
+            for(k = 0; k<2; ++k)
+                temp[i][j] += M_next[i][k] * M[k][j];
+        }
+    }
+
+    for(i = 0; i<2; ++i)
+    {
+        for(j = 0; j<2; ++j)
+        {
+            M_next[i][j] = temp[i][j] % P;
+        }
+    }
 }
 
 int *serial_matrix(int n, int A, int B, int P, int seed)
 {
     int x_cur = 1, x_prev = 0, i;
-    int **M = init_M(A, B), **M_next = init_M(A, B);
-    int **xi_1 = init_matrix(1, 2), **x0_1 = init_matrix(1, 2);
+    int M[2][2], M_next[2][2];
+    init_M(M, A, B);
+    init_M(M_next, A, B);
+    int xi_1[1][2], x0_1[1][2];
     int *arr = malloc(sizeof(int) * n);
     
     x0_1[0][0] = seed, x0_1[0][1] = 1;
@@ -92,9 +112,9 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
 
     for(i = 1; i< n; i++)
     {
-        mat_mul_mod_p(x0_1, 1, 2, M_next, 2, 2, xi_1, P);
+        mat_mul_x0_M_x1_p(x0_1, M_next, xi_1, P);
         arr[i] = xi_1[0][0];
-        mat_mul_mod_p(M_next, 2, 2, M, 2, 2, M_next, P);
+        mat_mul_M_next_M_p(M_next, M, P);
     }
     
     return arr;
