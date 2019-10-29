@@ -12,10 +12,76 @@ SBATCH --time=00:10:00
 #this command will run the job on 8 processes.
 mpicc -o rand_gen rand_gen.c -w -lm
 rm results.csv
-n=16                    #A  B  P          seed
+n=16                   
 
-while [ $n -le 1048000 ]    
+while [ $n -le 1048576 ]    
 do
-    mpirun -np 1 ./rand_gen $n 5 9 9967 42 >> results.csv
+    #          p              n  A B P    seed
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
+
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
+
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
+
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
+
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
+
     n=$(( n*2 ))     # increments $n
 done
