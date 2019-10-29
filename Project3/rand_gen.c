@@ -154,8 +154,8 @@ int main(int argc,char *argv[])
 
         printf("rand baseline arr: [");
         for(i = 0; i < n -1; i++)
-            printf("%d, ", rand_arr_matrix[i]);
-        printf("%d]\n", rand_arr_matrix[i]);
+            printf("%d, ", rand_arr_baseline[i]);
+        printf("%d]\n", rand_arr_baseline[i]);
 
         // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
         printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", time_serial_baseline,
