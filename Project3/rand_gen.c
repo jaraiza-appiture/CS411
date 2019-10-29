@@ -146,7 +146,13 @@ int main(int argc,char *argv[])
         // must assert rand gen arrays are same
 
         int i;
-        printf("rand arr: [");
+        printf("rand matrix arr: [");
+        for(i = 0; i < n -1; i++)
+            printf("%d, ", rand_arr_matrix[i]);
+        printf("%d]\n", rand_arr_matrix[i]);
+
+
+        printf("rand baseline arr: [");
         for(i = 0; i < n -1; i++)
             printf("%d, ", rand_arr_matrix[i]);
         printf("%d]\n", rand_arr_matrix[i]);
