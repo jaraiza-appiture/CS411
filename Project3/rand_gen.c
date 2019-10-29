@@ -68,7 +68,7 @@ void mat_mul_x0_M_x1_p(int x0[1][2], int M[2][2], int x1[1][2], int P)
     {
         for(j = 0; j<2; ++j)
         {
-            result[i][j] = temp[i][j] % P;
+            x1[i][j] = temp[i][j] % P;
         }
     }
 }
