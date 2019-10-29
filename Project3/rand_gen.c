@@ -26,7 +26,7 @@ int * serial_baseline(int n, int A, int B, int P, int seed)
 int * serial_matrix(int n, int A, int B, int P, int seed)
 {
     int x_cur = 1, x_prev = 0;
-    int * arr = malloc(sizeof(int) * n)
+    int * arr = malloc(sizeof(int) * n);
     arr[x_prev] = seed; // init x[0] with seed
 
     for(x_cur, x_prev; x_cur < n; x_cur++, x_prev++)
