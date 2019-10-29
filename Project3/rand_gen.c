@@ -114,6 +114,7 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     {
         mat_mul_x0_M_x1_p(x0_1, M_next, xi_1, P);
         arr[i] = xi_1[0][0];
+        x0_1[0][0] = xi_1[0][0];
         mat_mul_M_next_M_p(M_next, M, P);
     }
     
