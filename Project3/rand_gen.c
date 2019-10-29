@@ -86,7 +86,7 @@ int * serial_matrix(int n, int A, int B, int P, int seed)
     for(i = 1; i< n; i++)
     {
         mat_mul_mod_p(x0_1, 1, 2, M_next, 2, 2, xi_1, P);
-        arr[i] = xi_1[0];
+        arr[i] = xi_1[0][0];
         mat_mul_mod_p(M_next, 2, 2, M, 2, 2, M_next, P);
     }
     
