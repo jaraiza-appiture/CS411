@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <mpi.h> 
+#include <mpi.h>
 #include <assert.h>
 #include <sys/time.h>
 
@@ -53,7 +53,7 @@ int main(int argc,char *argv[])
         P = atoi(argv[4]);
         seed = atoi(argv[5]);
     }
-    assert(p >= 2);
+    assert(p >= 1);
     
     time_t t;
     srand((unsigned)time(&t));
