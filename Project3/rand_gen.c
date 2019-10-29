@@ -87,6 +87,7 @@ void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
             for(k = 0; k<2; k++)
                 temp[i][j] += M_next[i][k] * M[k][j];
         }
+        
     }
 
     for(i = 0; i<2; i++)
@@ -94,6 +95,7 @@ void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
         for(j = 0; j<2; j++)
         {
             M_next[i][j] = temp[i][j] % P;
+            printf("M_next[%d][%d]: %d\n", M_next[i][j]);
         }
     }
 }
