@@ -56,7 +56,7 @@ int **init_M(int A, int B)
 void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **result, int P)
 {
     int i, j, k;
-    int **temp = init_matrix(r_x, c_y);
+    // int **temp = init_matrix(r_x, c_y);
 
     for(i = 0; i<r_x; ++i)
     {
@@ -65,7 +65,7 @@ void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **r
             temp[i][j] = 0;
             for(k = 0; k<c_x; ++k)
             {
-                temp[i][j] += x[i][k] * y[k][j];
+                result[i][j] += x[i][k] * y[k][j];
             }
         }
     }
