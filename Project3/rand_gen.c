@@ -54,19 +54,19 @@ void mat_mul_x0_M_x1_p(int x0[1][2], int M[2][2], int x1[1][2], int P)
     int i, j, k;
     int temp[1][2];
 
-    for(i = 0; i<1; ++i)
+    for(i = 0; i<1; i++)
     {
-        for(j = 0; j<2; ++j)
+        for(j = 0; j<2; j++)
         {
             temp[i][j] = 0;
-            for(k = 0; k<2; ++k)
+            for(k = 0; k<2; k++)
                 temp[i][j] += x0[i][k] * M[k][j];
         }
     }
 
-    for(i = 0; i<1; ++i)
+    for(i = 0; i<1; i++)
     {
-        for(j = 0; j<2; ++j)
+        for(j = 0; j<2; j++)
         {
             x1[i][j] = temp[i][j] % P;
         }
@@ -79,19 +79,19 @@ void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
     int i, j, k;
     int temp[2][2];
 
-    for(i = 0; i<2; ++i)
+    for(i = 0; i<2; i++)
     {
-        for(j = 0; j<2; ++j)
+        for(j = 0; j<2; j++)
         {
             temp[i][j] = 0;
-            for(k = 0; k<2; ++k)
+            for(k = 0; k<2; k++)
                 temp[i][j] += M_next[i][k] * M[k][j];
         }
     }
 
-    for(i = 0; i<2; ++i)
+    for(i = 0; i<2; i++)
     {
-        for(j = 0; j<2; ++j)
+        for(j = 0; j<2; j++)
         {
             M_next[i][j] = temp[i][j] % P;
         }
