@@ -84,8 +84,10 @@ int main(int argc,char *argv[])
     if(rank == p-1)
     {
         // must assert rand gen arrays are same
+
+        int i;
         printf("rand arr: [");
-        for(int i = 0; i < n -1; i++)
+        for(i = 0; i < n -1; i++)
             printf("%d, ", rand_arr_baseline[i]);
         printf("%d]\n", rand_arr_baseline[i]);
 
