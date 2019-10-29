@@ -49,7 +49,7 @@ void init_M(int M[][], int A, int B)
     M[1][0] = B; M[1][1] = 1;
 }
 
-void mat_mul_mod_p(int x[][], int r_x, int c_x, int y[][], int r_y, int c_y, int result[][], int P)
+void mat_mul_mod_p(int *x, int r_x, int c_x, int *y, int r_y, int c_y, int *result, int P)
 {
     int i, j, k;
     int **temp = init_matrix(r_x, c_y);
