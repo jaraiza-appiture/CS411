@@ -12,8 +12,8 @@ SBATCH --time=00:10:00
 #this command will run the job on 8 processes.
 mpicc -o rand_gen rand_gen.c -w -lm
 rm results.csv
-n=1000
-mpirun -np 1 ./rand_gen 10 49 21 9999999967 42 >> results.csv        
+n=1000                    #A  B  P          seed
+mpirun -np 1 ./rand_gen 10 49 21 9967 42 >> results.csv        
 
 # while [ $n -le 2048000 ]    
 # do
