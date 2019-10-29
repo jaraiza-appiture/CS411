@@ -43,10 +43,14 @@ void dealloc_matrix(int **mat, int rows, int columns)
     free(mat);
 }
 
-void init_M(int **M, int A, int B)
+int **init_M(int **M, int A, int B)
 {
+    int **M = init_matrix(2, 2);
+
     M[0][0] = A; M[0][1] = 0;
     M[1][0] = B; M[1][1] = 1;
+
+    return M;
 }
 
 void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **result, int P)
@@ -74,10 +78,8 @@ void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **r
 int * serial_matrix(int n, int A, int B, int P, int seed)
 {
     int x_cur = 1, x_prev = 0, i;
-    int M[2][2], M_next[2][2];
-    init_M(M, A, B);
-    init_M(M_next, A, B);
-    int xi_1[1][2], x0_1[1][2];
+    int **M = init_M(A, B), **M_next = init_M(A, B);
+    int **xi_1 = init_matrix(1, 2), **x0_1 = init_matrix(1, 2);
     int *arr = malloc(sizeof(int) * n);
     
     x0_1[0][0] = seed, x0_1[0][1] = 1;
