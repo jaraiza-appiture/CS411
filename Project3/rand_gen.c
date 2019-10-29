@@ -18,7 +18,7 @@ int *serial_baseline(int n, int A, int B, int P, int seed)
     arr[x_prev] = seed; // init x[0] with seed
 
     for(x_cur, x_prev; x_cur < n; x_cur++, x_prev++)
-        arr[x_cur] = (arr[x_prev] + B) % P; // linear congruential generator
+        arr[x_cur] = ((arr[x_prev]*A) + B) % P; // linear congruential generator
 
     return arr;
 }
