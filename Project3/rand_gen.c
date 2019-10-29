@@ -107,14 +107,14 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     int xi_1[1][2], x0_1[1][2];
     int *arr = malloc(sizeof(int) * n);
     
-    x0_1[0][0] = seed, x0_1[0][1] = 1;
+    x0_1[0][0] = seed; x0_1[0][1] = 1;
     arr[0] = seed;
 
     for(i = 1; i< n; i++)
     {
         mat_mul_x0_M_x1_p(x0_1, M_next, xi_1, P);
         arr[i] = xi_1[0][0];
-        x0_1[0][0] = xi_1[0][0];
+        // x0_1[0][0] = xi_1[0][0];
         mat_mul_M_next_M_p(M_next, M, P);
     }
     
