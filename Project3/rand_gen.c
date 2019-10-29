@@ -53,7 +53,7 @@ int **init_M(int A, int B)
     return M;
 }
 
-void mat_mul_mod_p(int **x, int r_x, int c_x int **y, int r_y, int c_y, int **result, int P)
+void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **result, int P)
 {
     int i, j, k;
     int **temp = init_matrix(r_x, c_y);
@@ -78,7 +78,7 @@ void mat_mul_mod_p(int **x, int r_x, int c_x int **y, int r_y, int c_y, int **re
 int * serial_matrix(int n, int A, int B, int P, int seed)
 {
     int x_cur = 1, x_prev = 0, i;
-    int **M = init_M(), **M_next = init_M();
+    int **M = init_M(A, B), **M_next = init_M(A, B);
     int **xi_1 = init_matrix(1, 2), **x0_1 = init_matrix(1, 2);
     int *arr = malloc(sizeof(int) * n);
     
