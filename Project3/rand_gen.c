@@ -68,11 +68,7 @@ void mat_mul_x0_M_x1_p(int x0[1][2], int M[2][2], int x1[1][2], int P)
     {
         for(j = 0; j<2; j++)
         {
-            printf("Temp[%d][%d]: %d\n", i, j, temp[i][j]);
-            printf("Bef x1[%d][%d]: %d\n", i, j, x1[i][j]);
             x1[i][j] = temp[i][j] % P;
-            printf("Aft x1[%d][%d]: %d\n", i, j, x1[i][j]);
-            printf("x0[%d][%d]: %d\n", i, j, x0[i][j]);
         }
     }
 }
@@ -111,7 +107,6 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     int M[2][2], M_next[2][2];
     init_M(M, A, B);
     init_M(M_next, A, B);
-    printf("M[0][0]: %d\n", M[0][0]);
     int xi_1[1][2], x0_1[1][2];
     int *arr = malloc(sizeof(int) * n);
     
@@ -147,7 +142,6 @@ int main(int argc,char *argv[])
         P = atoi(argv[4]);
         seed = atoi(argv[5]);
     }
-    printf("P: %d\n", P);
     assert(p >= 1);
     
     time_t t;
@@ -181,16 +175,16 @@ int main(int argc,char *argv[])
         // must assert rand gen arrays are same
 
         int i;
-        printf("rand matrix arr: [");
-        for(i = 0; i < n -1; i++)
-            printf("%d, ", rand_arr_matrix[i]);
-        printf("%d]\n", rand_arr_matrix[i]);
+        // printf("rand matrix arr: [");
+        // for(i = 0; i < n -1; i++)
+        //     printf("%d, ", rand_arr_matrix[i]);
+        // printf("%d]\n", rand_arr_matrix[i]);
 
 
-        printf("rand baseline arr: [");
-        for(i = 0; i < n -1; i++)
-            printf("%d, ", rand_arr_baseline[i]);
-        printf("%d]\n", rand_arr_baseline[i]);
+        // printf("rand baseline arr: [");
+        // for(i = 0; i < n -1; i++)
+        //     printf("%d, ", rand_arr_baseline[i]);
+        // printf("%d]\n", rand_arr_baseline[i]);
 
         // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
         printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", time_serial_baseline,
