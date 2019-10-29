@@ -13,7 +13,7 @@ SBATCH --time=00:10:00
 mpicc -o rand_gen rand_gen.c -w -lm
 rm results.csv
 n=1000
-mpirun -np 1 ./rand_gen 10 49 37 9999999967 42 >> results.csv        
+mpirun -np 1 ./rand_gen 10 49 21 9999999967 42 >> results.csv        
 
 # while [ $n -le 2048000 ]    
 # do
