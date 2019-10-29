@@ -43,7 +43,7 @@ void dealloc_matrix(int **mat, int rows, int columns)
     free(mat);
 }
 
-void init_M(int M[][], int A, int B)
+void init_M(int *M, int A, int B)
 {
     M[0][0] = A; M[0][1] = 0;
     M[1][0] = B; M[1][1] = 1;
