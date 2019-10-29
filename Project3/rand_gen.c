@@ -82,7 +82,7 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     int x_cur = 1, x_prev = 0, i;
     int **M = init_M(A, B), **M_next = init_M(A, B);
     int **xi_1 = init_matrix(1, 2), **x0_1 = init_matrix(1, 2);
-    int *arr = malloc(sizeofmatrix(int) * n);
+    int *arr = malloc(sizeof(int) * n);
     
     x0_1[0][0] = seed, x0_1[0][1] = 1;
     arr[0] = seed;
