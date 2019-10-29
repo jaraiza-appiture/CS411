@@ -74,9 +74,9 @@ void mat_mul_mod_p(int **x, int r_x, int c_x, int **y, int r_y, int c_y, int **r
 int * serial_matrix(int n, int A, int B, int P, int seed)
 {
     int x_cur = 1, x_prev = 0, i;
-    int M[2][2], M_Next[2][2];
+    int M[2][2], M_next[2][2];
     init_M(M, A, B);
-    init_M(M_Next, A, B);
+    init_M(M_next, A, B);
     int xi_1[1][2], x0_1[1][2];
     int *arr = malloc(sizeof(int) * n);
     
