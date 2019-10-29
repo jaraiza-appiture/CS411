@@ -148,8 +148,6 @@ int main(int argc,char *argv[])
     if(rank == root) // make array of given size
     {
         arr = GenerateArray(size);
-        
-
     }
 
 
