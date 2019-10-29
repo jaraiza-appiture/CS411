@@ -94,6 +94,7 @@ void mat_mul_M_next_M_p(int M_next[2][2], int M[2][2], int P)
     {
         for(j = 0; j<2; j++)
         {
+            printf("Temp[%d][%d]: %d\n", i, j, temp[i][j]);
             printf("Bef M_next[%d][%d]: %d\n", i, j, M_next[i][j]);
             M_next[i][j] = temp[i][j] % P;
             printf("Aft M_next[%d][%d]: %d\n", i, j, M_next[i][j]);
