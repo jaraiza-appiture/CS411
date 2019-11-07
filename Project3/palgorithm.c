@@ -33,16 +33,15 @@ int main(int argc, char *argv[])
     seed = atoi(argv[4]);
     n = atoi(argv[5]);
 
-    Matrix m_local;
-    m_local.M = { A, 0, B, 1 };
+    Matrix m_local = { A, 0, B, 1 };
+    Matrix iden_local = { 1, 0, 0, 1 };
     //initialze everythin
-    int x_local[n] = {0};     
+    int x_local[n/p] = {0};     
     int i;
     //initialize all the xlocals
-    for(i = 0; i < n; i++) {
+    for(i =0; i < n/procs; i++) {
         xlocals[i] = m_local.M;
-        printMatrix(x_local[i]);
-
+        printMatrix(x_locals[i]);
     }
     
     // myMatrix = {{A,0},{B,1}};
