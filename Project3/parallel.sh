@@ -2,7 +2,7 @@
 #SBATCH --time=00:10:00
 mpicc -o palgorithm palgorithm.c -lm
                      //  A   B     Prime seed n 
-mpirun -np 2 ./palgorithm 2069 3069 9973 10 8 >> ./.out
+mpirun -np 2 ./palgorithm 2069 3069 9973 10 8 >> ./a.out
 
 // n=$1
 // i=$n

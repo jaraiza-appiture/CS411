@@ -48,10 +48,11 @@ int main(int argc, char *argv[])
     //initialize all the xlocals
     for(i =0; i < n/procs; i++) {
         x_locals[i].M[0][0] = A;
-        x_locals[i].M[0][1] = B;
-        x_locals[i].M[1][0] = 0;
+        x_locals[i].M[0][1] = 0;
+        x_locals[i].M[1][0] = B;
         x_locals[i].M[1][1] = 1;
     	printMatrix(x_locals[i]);
+	//printf ("\n");
     }
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
