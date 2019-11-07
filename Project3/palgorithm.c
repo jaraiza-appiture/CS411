@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     //initialze everythin
    // int x_locals[n/procs];     
     int i;
-    //initialize all the xlocals
+    //initialize all the xlocals to (A,0,B,1)
     for(i =0; i < n/procs; i++) {
         x_locals[i].M[0][0] = A;
         x_locals[i].M[0][1] = B;
@@ -53,6 +53,16 @@ int main(int argc, char *argv[])
         x_locals[i].M[1][1] = 1;
     	printMatrix(x_locals[i]);
     }
+
+    Matrix M_local=  { 1,0,0,1}; // M^0   identity matrix
+    for(i =1; i < n/procs; i++) {
+        x_locals[i] = M_multiplySquareMatMod( x_locals[i], x_locals[i-1], int Prime);
+        printMatrix(x_locals[i]);
+
+    }
+    printf("this is the final matrix");
+    printMatrix(x_locals[i]);
+
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
     // int *arr1 = serial_baseline(n, A, B, Prime, seed);
