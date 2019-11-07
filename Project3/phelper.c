@@ -19,25 +19,43 @@ void copyMatrix(int src[1][2], int dest[1][2])
 int printMatrix(Matrix M)
 {
     int i=0, j=0;
-    printf("M[0][0] = %d\n", M.M[0][0]);
+    /**printf("M[0][0] = %d\n", M.M[0][0]);
     printf("M[0][1] = %d\n", M.M[0][1]);
     printf("M[1][0] = %d\n", M.M[1][0]);
     printf("M[1][1] = %d\n", M.M[1][1]);
-    printf("\n");
-   /** for (i = 0; i < 2; i++) {
+    printf("\n");**/
+    for (i = 0; i < 2; i++) {
         for(j = 0; j < 2; j++) {
             printf("  | %d  ", M.M[i][j]);
         }
         printf("|\n");
     }
-   **/
+   
 }
+
+int printMatrixInt(int M[2][2])
+{
+    int i=0, j=0;
+    /**printf("M[0][0] = %d\n", M.M[0][0]);
+    printf("M[0][1] = %d\n", M.M[0][1]);
+    printf("M[1][0] = %d\n", M.M[1][0]);
+    printf("M[1][1] = %d\n", M.M[1][1]);
+    printf("\n");**/
+   for (i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            printf("  | %d  ", M[i][j]);
+        }
+        printf("|\n");
+    }
+   
+}
+
 void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
 {
     int i, j, k;
     int temp[1][2];
 
-    printf("this is multiplyRectMatMod Matroix\n")
+//    printf("this is multiplyRectMatMod Matroix\n");
     for(i = 0; i<1; i++)
     {
         for(j = 0; j<2; j++)
@@ -46,11 +64,12 @@ void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
             for(k = 0; k<2; k++)
                 temp[i][j] += x0_1[i][k] * M.M[k][j];
             temp[i][j] = temp[i][j] % Prime;
-            printf("%d ", temp[i][j]);
+           printf("%d ", temp[i][j]);
         }
         printf("\n");
     }
     copyMatrix(temp, xi_1);
+
 }
 
 
