@@ -89,7 +89,8 @@ int main(int argc, char *argv[])
 	printMatrix(M_arr[i]);
         //generate random numbers => M_randArr has everything in the end
         multiplyRectMatMod(x0_1, M_arr[i], M_randArr, Prime);
-        copyMatrixInt(M_randArr, x0_1);
+        x0_1[0][0]  = M_randArr[0][0];
+	x0_1[0][1] = M_randArr[0][1];
 	
     }
     
