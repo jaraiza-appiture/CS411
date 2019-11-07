@@ -64,10 +64,13 @@ int main(int argc, char *argv[])
     // printMatrix(global);
 
     //pass the global to ParallelPrefix
-    ParallelPrefix( global, procs, rank, Prime, A, B);
-
-
-
+    Matrix offset;
+    offset = ParallelPrefix( global, procs, rank, Prime, A, B);
+    /**
+    for (i=1; i < n/procs; i++){
+	x_locals[i] = multiply
+	}
+	**/
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
     // int *arr1 = serial_baseline(n, A, B, Prime, seed);
