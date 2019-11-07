@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     Matrix local = {1,0,0,1};
     Matrix global;  // M^0   identity matrix
     //calculate M^n/p for all procs
-    for(i =1; i <= n/procs; i++) {
+    for(i =1; i < n/procs; i++) {
        x_locals[i] =  multiplySquareMatMod( x_locals[i], x_locals[i-1], Prime);
     }
     //get the last irem in x_local
@@ -64,10 +64,13 @@ int main(int argc, char *argv[])
     // printMatrix(global);
 
     //pass the global to ParallelPrefix
-    ParallelPrefix( global, procs, rank, Prime, A, B);
-
-
-
+    Matrix offset;
+    offset = ParallelPrefix( global, procs, rank, Prime, A, B);
+    /**
+    for (i=1; i < n/procs; i++){
+	x_locals[i] = multiply
+	}
+	**/
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
     // int *arr1 = serial_baseline(n, A, B, Prime, seed);
