@@ -40,8 +40,6 @@ int main(int argc, char *argv[])
     }
     Matrix *x_locals = (Matrix*)malloc(sizeof(Matrix) * n/procs);
 
-    Matrix m_local = { A, 0, B, 1 };
-    Matrix iden_local = { 1, 0, 0, 1 };
     //initialze everythin
    // int x_locals[n/procs];     
     int i;
@@ -56,18 +54,36 @@ int main(int argc, char *argv[])
     }
     
 
-    Matrix M_local=  { 1,0,0,1}; // M^0   identity matrix
-    // Matrix local_arr[n/procs];
-    Matrix *local_arr = (Matrix*)malloc(sizeof(Matrix) * n/procs);
-
+    Matrix M_local = {1,0,0,1};
+    Matrix M_global;  // M^0   identity matrix
     //calculate M^n/p for all procs
     for(i =1; i < n/procs; i++) {
        x_locals[i] =  multiplySquareMatMod( x_locals[i], x_locals[i-1], Prime);
     }
     //get the last irem in x_local
-    M_local =  x_locals[n/procs];
+    M_global =  x_locals[(n/procs)-1];
     printf("this is the final matrix\n");
-    printMatrix(M_local);
+    printMatrix(M_global);
+   
+    //MPI reduce start
+    int k;
+    int t = 1;
+    int time_steps = (int)ceil(log2((double)procs)) -1;
+    for(k = 0; k <= time_steps; k++)
+    {
+	MPI_Status status;
+        int g_remote[2][2];
+        int buddy = rank ^ t; // XOR flipping operator
+        t = t << 1; // double num
+	
+
+        MPI_Sendrecv(&M_global.M, 4, MPI_INT, buddy, 0, &g_remote, 4, MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        if (buddy <rank)
+	{
+	 printf("buddy is less than rank\n");
+	}
+    }
+
 
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
