@@ -169,7 +169,7 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
         int buddy = rank ^ t; // XOR flipping operator
         t = t << 1; // double num
 	
-        MPI_Sendrecv(&global.M, sizeof(Matrix), MPI_INT, buddy, 0, &g_remote.M, sizeof(Matrix), MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        MPI_Sendrecv(&global.M, 4, MPI_INT, buddy, 0, &g_remote.M, 4, MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
         if (buddy <rank)
 	    {
 	        printf("buddy is less than rank\n");
