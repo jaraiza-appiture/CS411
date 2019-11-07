@@ -103,26 +103,26 @@ int main(int argc, char *argv[])
     fclose(outfile);
 **/
 	
-    // Matrix myMatrix = {A,0,B,1};
-    // int *arr = serial_matrix(n, A, B, Prime, seed);
-    // int *arr1 = serial_baseline(n, A, B, Prime, seed);
+    Matrix myMatrix = {A,0,B,1};
+    int *arr = serial_matrix(n, A, B, Prime, seed);
+    int *arr1 = serial_baseline(n, A, B, Prime, seed);
 
-    // char filename2[18] = "ResultsSerial.txt";
-    // outfile = fopen(filename2, "w");
+    char filename2[18] = "ResultsSerial.txt";
+    outfile = fopen(filename2, "w");
 
     
-    // for (i =0; i< n; i++ )
-    // {
-    //     fprintf(outfile, "%d\n", arr[i]);
-    // }   
+    for (i =0; i< n; i++ )
+    {
+        fprintf(outfile, "%d\n", arr[i]);
+    }   
    
 
     
-    // for (i =0; i< n; i++ )
-    // {
-    //     fprintf(outfile, "%d\n", arr1[i]);
-    // }
-    // fclose(outfile);
+    for (i =0; i< n; i++ )
+    {
+        fprintf(outfile, "%d\n", arr1[i]);
+    }
+    fclose(outfile);
     MPI_Finalize();
 
  return 0;
