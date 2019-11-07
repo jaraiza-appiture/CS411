@@ -60,15 +60,15 @@ void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
     {
         for(j = 0; j<2; j++)
         {
-            temp[i][j] = 0;
+            xi_1[i][j] = 0;
             for(k = 0; k<2; k++)
-                temp[i][j] += x0_1[i][k] * M.M[k][j];
-            temp[i][j] = temp[i][j] % Prime;
-        //    printf("%d ", temp[i][j]);
+                xi_1[i][j] += x0_1[i][k] * M.M[k][j];
+            xi_1[i][j] = xi_1[i][j] % Prime;
+           printf("temp[i][j]%d ", xi_1[i][j]);
         }
         // printf("\n");
     }
-    copyMatrix(temp, xi_1);
+    // copyMatrix(temp, xi_1);
 
 }
 
