@@ -14,12 +14,13 @@ int main(int argc, char *argv[])
 {
 
     // Step 1:
-    int rank,procs;
+    int rank,procs, subprocs;
     int seed, A, B, n, Prime;
     // Init and setup calls
     MPI_Init(&argc,&argv);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
     MPI_Comm_size(MPI_COMM_WORLD,&procs);
+    subprocs = procs;
 
     // assert(argc == 6);
     // A = 2069;
@@ -33,6 +34,12 @@ int main(int argc, char *argv[])
     seed = atoi(argv[4]);
     n = atoi(argv[5]);
 
+    if (procs >=8)
+    {
+        procs = 8;
+    }
+    Matrix *x_locals = (Matrix*)malloc(sizeof(Matrix) * n/procs);
+
     Matrix m_local = { A, 0, B, 1 };
     Matrix iden_local = { 1, 0, 0, 1 };
     //initialze everythin
@@ -40,12 +47,11 @@ int main(int argc, char *argv[])
     int i;
     //initialize all the xlocals
     for(i =0; i < n/procs; i++) {
-        x_locals[i] = m_local;
         x_locals[i].M[0][0] = A;
         x_locals[i].M[0][1] = B;
         x_locals[i].M[1][0] = 0;
         x_locals[i].M[1][1] = 1;
-	printMatrix(x_locals[i].M);
+    	printMatrix(x_locals[i].M);
     }
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
