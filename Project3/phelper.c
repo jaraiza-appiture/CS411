@@ -82,11 +82,11 @@ Matrix multiplySquareMatMod(Matrix M, Matrix M_next, int Prime)
                 Res.M[i][j] += M.M[i][k] * M_next.M[k][j];
             }
             Res.M[i][j]= Res.M[i][j]% Prime;
-             printf("%d\n",Res.M[i][j]);
+            //  printf("%d\n",Res.M[i][j]);
         }
     }
-     printf("Res = \n");
-     printMatrix(Res);
+    //  printf("Res = \n");
+    //  printMatrix(Res);
 
     M_next = Res;
     return M_next;
@@ -156,5 +156,40 @@ int *serial_baseline(int n, int A, int B, int P, int seed)
         arr[x_cur] = ((arr[x_prev]*A) + B) % P; // linear congruential generator
 
     return arr;
+}
+
+int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
+{
+        //MPI reduce start
+    int k;
+    int t = 1;
+    Matrix local = {1,0,0,1};
+    int time_steps = (int)ceil(log2((double)procs)) -1;
+    for(k = 0; k <= time_steps; k++)
+    {
+	    MPI_Status status;
+        Matrix g_remote;
+        int buddy = rank ^ t; // XOR flipping operator
+        t = t << 1; // double num
+	
+        MPI_Sendrecv(&global.M, sizeof(Matrix), MPI_INT, buddy, 0, &g_remote.M, sizeof(Matrix), MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        if (buddy <rank)
+	    {
+	        printf("buddy is less than rank\n");
+            local = multiplySquareMatMod(g_remote, local);
+
+
+	    }
+        printf("\nthe rank is %d", rank);
+        printf("\nthis is the local\n");
+        printMatrix(local);
+
+        global = multiplySquareMatMod(g_remote, global);
+        printf("\nthis is the global\n");
+        printMatrix(global);
+
+    }
+
+
 }
 
