@@ -93,13 +93,10 @@ int main(int argc, char *argv[])
     }
     
     //fprintf(outfile, "rank %d rand nums: \n", rank);
-    int l = 0;
-    fprintf(outfile,"M_randArr[0][0]: %d", M_randArr[0][0]);
-    fprintf(outfile,"M_randArr[0][1]: %d", M_randArr[0][1]);
-    fclose(outfile);
-/**
+
     for (i = 0; i < n / procs; i++) {
-        fprintf(outfile, "%d\n", M_randArr[i][l]);
+        fprintf(outfile,"M_randArr[0][0]: %d\n", M_randArr[0][0]);
+        // fprintf(outfile,"M_randArr[0][1]: %d\n", M_randArr[0][1]);
     }
     printf("\n");
 
