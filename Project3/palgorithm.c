@@ -76,9 +76,8 @@ int main(int argc, char *argv[])
 
     ///now that we have offset
     //we generate randomArr
-    unsigned int M_randArr[1][2], x0_1[1][2];
+    int M_randArr[1][2], x0_1[1][2];
     // final ouput 
-    unsigned int *arr = malloc(sizeof(unsigned int) * n);
     // [x0  1] => x0 = seed and 1 stays same
     x0_1[0][0] = seed; x0_1[0][1] = 1;
 
@@ -89,7 +88,7 @@ int main(int argc, char *argv[])
         multiplyRectMatMod(x0_1, M_arr[i],M_randArr, Prime);
     }
     //fprintf(outfile, "rank %d rand nums: \n", rank);
-    for (int i = 0; i < n / p; i++) {
+    for (i = 0; i < n / procs; i++) {
         fprintf(outfile, "%d\n", M_randArr[i]);
     }
     printf("\n");
@@ -104,12 +103,13 @@ int main(int argc, char *argv[])
     char filename2[18] = "ResultsSerial.txt";
     outfile = fopen(filename2, "w");
 
-    fprintf("This is serial_matrix\n");
+    
     for (i =0; i< n; i++ )
     {
         fprintf(outfile, "%d\n", arr[i]);
-    }
-    fprintf("This is serial_baseline\n");
+    }   
+   
+
     
     for (i =0; i< n; i++ )
     {

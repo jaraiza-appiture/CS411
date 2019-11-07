@@ -1,9 +1,9 @@
 typedef struct Matrix
 {
-    unsigned int M[2][2];
+    int M[2][2];
 } Matrix;
 
-void copyMatrix(unsigned int src[1][2], unsigned int dest[1][2])
+void copyMatrix(int src[1][2], int dest[1][2])
 {
     int i = 0, j = 0;
     for(i = 0; i < 1; i++)
@@ -32,10 +32,10 @@ int printMatrix(Matrix M)
     }
    **/
 }
-void multiplyRectMatMod(unsigned int x0_1[1][2], Matrix M, unsigned int xi_1[1][2], int Prime)
+void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
 {
     int i, j, k;
-    unsigned int temp[1][2];
+    int temp[1][2];
 
 
     for(i = 0; i<1; i++)
@@ -123,10 +123,10 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     Matrix M_next = M;
     
     //[xi   1] [x0    1]
-    unsigned int xi_1[1][2], x0_1[1][2];
+    int xi_1[1][2], x0_1[1][2];
 
     // final ouput 
-    unsigned int *arr = malloc(sizeof(unsigned int) * n);
+    int *arr = malloc(sizeof(unsigned int) * n);
     // [x0  1] => x0 = seed and 1 stays same
     x0_1[0][0] = seed; x0_1[0][1] = 1;
     // arr[0] <= seed
