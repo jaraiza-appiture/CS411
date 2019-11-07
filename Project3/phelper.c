@@ -26,9 +26,9 @@ int printMatrix(Matrix M)
     printf("\n");**/
     for (i = 0; i < 2; i++) {
         for(j = 0; j < 2; j++) {
-            printf("  | %d  ", M.M[i][j]);
+            // printf("  | %d  ", M.M[i][j]);
         }
-        printf("|\n");
+        // printf("|\n");
     }
    
 }
@@ -43,9 +43,9 @@ int printMatrixInt(int M[2][2])
     printf("\n");**/
    for (i = 0; i < 2; i++) {
         for(j = 0; j < 2; j++) {
-            printf("  | %d  ", M[i][j]);
+            // printf("  | %d  ", M[i][j]);
         }
-        printf("|\n");
+        // printf("|\n");
     }
    
 }
@@ -64,9 +64,9 @@ void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
             for(k = 0; k<2; k++)
                 temp[i][j] += x0_1[i][k] * M.M[k][j];
             temp[i][j] = temp[i][j] % Prime;
-           printf("%d ", temp[i][j]);
+        //    printf("%d ", temp[i][j]);
         }
-        printf("\n");
+        // printf("\n");
     }
     copyMatrix(temp, xi_1);
 
@@ -184,10 +184,10 @@ Matrix ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int 
     int t = 1;
     Matrix local = {1,0,0,1};
     int time_steps = (int)ceil(log2((double)procs)) -1;
-    printf ("timesteps are %d\n" , time_steps);
+    // printf ("timesteps are %d\n" , time_steps);
     for(k = 0; k <= time_steps; k++)
     {
-	printf ("\nk is : %d\n", k);
+	// printf ("\nk is : %d\n", k);
 	    MPI_Status status;
         Matrix g_remote;
         int buddy = rank ^ t; // XOR flipping operator
@@ -195,20 +195,20 @@ Matrix ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int 
 	
         MPI_Sendrecv(&global.M, 4, MPI_INT, buddy, 0, &g_remote.M, 4, MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 
-        printf("\nthe rank is %d", rank);
-	    printf("the buddy is %d", buddy);
+        // printf("\nthe rank is %d", rank);
+	    // printf("the buddy is %d", buddy);
 	    if (buddy <rank)
 	    {
 	        printf("\nbuddy is less than rank\n");
             local = multiplySquareMatMod(g_remote, local,Prime);
 	    }
         //printf("\nthe rank is %d", rank);
-        printf("\nthis is the local\n");
-        printMatrix(local);
+        // printf("\nthis is the local\n");
+        // printMatrix(local);
 
         global = multiplySquareMatMod(g_remote, global, Prime);
-        printf("\nthis is the global\n");
-        printMatrix(global);
+        // printf("\nthis is the global\n");
+        // printMatrix(global);
 
 
     }

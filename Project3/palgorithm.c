@@ -85,16 +85,18 @@ int main(int argc, char *argv[])
     for ( i = 0; i < n / procs; i++) {
         //generate offset * M_arr[i]
         M_arr[i] = multiplySquareMatMod(M_arr[i], offset, Prime);
-	    printf("After getting multiplied by offset\n");
-	    printMatrix(M_arr[i]);
+	    // printf("After getting multiplied by offset\n");
+	    // printMatrix(M_arr[i]);
         //generate random numbers => M_randArr has everything in the end
         multiplyRectMatMod(x0_1, M_arr[i], M_randArr, Prime);
+        // x0_1[0][0]  = M_randArr[0][0];
 	
     }
     
 
     for (i = 0; i < n / procs; i++) {
-        fprintf(outfile,"M_randArr: at %d index is %d\n",i, M_randArr[i]);
+        fprintf(outfile,"M_randArr: at %d index is %d\n",i, M_randArr[0][0]);
+        fprintf(outfile,"M_randArr: at %d index is %d\n",i, M_randArr[1][0]);
         // fprintf(outfile,"M_randArr[0][1]: %d\n", M_randArr[0][1]);
     }
     printf("\n");
