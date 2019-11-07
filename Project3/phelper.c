@@ -177,13 +177,11 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
         MPI_Sendrecv(&global.M, 4, MPI_INT, buddy, 0, &g_remote.M, 4, MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 
         printf("\nthe rank is %d", rank);
-	printf("the buddy is %d", buddy);
-	if (buddy <rank)
+	    printf("the buddy is %d", buddy);
+	    if (buddy <rank)
 	    {
 	        printf("\nbuddy is less than rank\n");
             local = multiplySquareMatMod(g_remote, local,Prime);
-
-
 	    }
         //printf("\nthe rank is %d", rank);
         printf("\nthis is the local\n");
