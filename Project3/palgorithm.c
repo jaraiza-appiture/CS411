@@ -89,13 +89,14 @@ int main(int argc, char *argv[])
 	printMatrix(M_arr[i]);
         //generate random numbers => M_randArr has everything in the end
         multiplyRectMatMod(x0_1, M_arr[i], M_randArr, Prime);
+        copyMatrixInt(M_randArr, x0_1);
 	
     }
     
     //fprintf(outfile, "rank %d rand nums: \n", rank);
 
     for (i = 0; i < n / procs; i++) {
-        fprintf(outfile,"M_randArr[0][0]: %d\n", M_randArr[0][0]);
+        fprintf(outfile,"M_randArr[0][0]: at %d index is %d\n",i, M_randArr[0][0]);
         // fprintf(outfile,"M_randArr[0][1]: %d\n", M_randArr[0][1]);
     }
     printf("\n");
