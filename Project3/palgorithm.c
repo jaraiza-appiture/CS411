@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     Matrix m_local = { A, 0, B, 1 };
     Matrix iden_local = { 1, 0, 0, 1 };
     //initialze everythin
-    int x_locals[n/procs];     
+   // int x_locals[n/procs];     
     int i;
     //initialize all the xlocals
     for(i =0; i < n/procs; i++) {
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
         x_locals[i].M[0][1] = B;
         x_locals[i].M[1][0] = 0;
         x_locals[i].M[1][1] = 1;
-    	printMatrix(x_locals[i].M);
+    	printMatrix(x_locals[i]);
     }
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
     //     printf("%d  ", arr1[i]);
     // }
 
+    MPI_Finalize();
 
  return 0;
 
