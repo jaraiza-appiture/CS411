@@ -123,6 +123,15 @@ int main(int argc, char *argv[])
         fprintf(outfile, "S_Baseline	%d\n", arr1[i]);
     }
     fclose(outfile);
+    printf("Test code /n");
+    Matrix myMatrix = {2,0,2,1};
+    int M_randArr[1][2], x0_1[1][2];
+    // final ouput 
+    // [x0  1] => x0 = seed and 1 stays same
+    x0_1[0][0] = seed; x0_1[0][1] = 1;
+
+    multiplyRectMatMod(x0_1, M_arr[i], M_randArr, 7);
+
     MPI_Finalize();
 
  return 0;
