@@ -158,7 +158,7 @@ int *serial_baseline(int n, int A, int B, int P, int seed)
     return arr;
 }
 
-int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
+Matrix ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
 {
         //MPI reduce start
     int k;
@@ -190,10 +190,9 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
         global = multiplySquareMatMod(g_remote, global, Prime);
         printf("\nthis is the global\n");
         printMatrix(global);
-        
+
 
     }
-
-
+    return local;
 }
 
