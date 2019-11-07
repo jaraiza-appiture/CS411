@@ -51,13 +51,13 @@ int main(int argc, char *argv[])
         x_locals[i].M[0][1] = 0;
         x_locals[i].M[1][0] = B;
         x_locals[i].M[1][1] = 1;
-    	printMatrix(x_locals[i]);
+//    	printMatrix(x_locals[i]);
 	//printf ("\n");
     }
 
     Matrix M_local=  { 1,0,0,1}; // M^0   identity matrix
     for(i =1; i < n/procs; i++) {
-        x_locals[i] = M_multiplySquareMatMod( x_locals[i], x_locals[i-1], int Prime);
+        x_locals[i] = M_multiplySquareMatMod( x_locals[i], x_locals[i-1], Prime);
         printMatrix(x_locals[i]);
 
     }
