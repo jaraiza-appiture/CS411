@@ -14,6 +14,8 @@ void copyMatrix(unsigned int src[1][2], unsigned int dest[1][2])
         }
     }
 }
+
+
 int printMatrix(Matrix M)
 {
     int i=0, j=0;
@@ -155,3 +157,4 @@ int *serial_baseline(int n, int A, int B, int P, int seed)
 
     return arr;
 }
+
