@@ -190,6 +190,7 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
         global = multiplySquareMatMod(g_remote, global, Prime);
         printf("\nthis is the global\n");
         printMatrix(global);
+        
 
     }
 
