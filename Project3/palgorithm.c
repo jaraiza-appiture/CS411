@@ -57,13 +57,15 @@ int main(int argc, char *argv[])
     
 
     Matrix M_local=  { 1,0,0,1}; // M^0   identity matrix
-    Matrix local_arr;
+    // Matrix local_arr[n/procs];
+    Matrix *local_arr = (Matrix*)malloc(sizeof(Matrix) * n/procs);
+
     //calculate M^n/p for all procs
     for(i =1; i < n/procs; i++) {
        x_locals[i] =  multiplySquareMatMod( x_locals[i], x_locals[i-1], Prime);
-       M_local = x_locals[i];
     }
-    local_arr.append(M_local)
+    //get the last irem in x_local
+    M_local =  x_locals[n/procs];
     printf("this is the final matrix\n");
     printMatrix(M_local);
 
