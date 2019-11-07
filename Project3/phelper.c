@@ -173,7 +173,7 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
         if (buddy <rank)
 	    {
 	        printf("buddy is less than rank\n");
-            local = multiplySquareMatMod(g_remote, local);
+            local = multiplySquareMatMod(g_remote, local,Prime);
 
 
 	    }
@@ -181,7 +181,7 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
         printf("\nthis is the local\n");
         printMatrix(local);
 
-        global = multiplySquareMatMod(g_remote, global);
+        global = multiplySquareMatMod(g_remote, global, Prime);
         printf("\nthis is the global\n");
         printMatrix(global);
 
