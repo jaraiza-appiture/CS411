@@ -37,7 +37,7 @@ void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
     int i, j, k;
     int temp[1][2];
 
-
+    printf("this is multiplyRectMatMod Matroix\n")
     for(i = 0; i<1; i++)
     {
         for(j = 0; j<2; j++)
@@ -46,9 +46,9 @@ void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
             for(k = 0; k<2; k++)
                 temp[i][j] += x0_1[i][k] * M.M[k][j];
             temp[i][j] = temp[i][j] % Prime;
-            // printf("%d ", temp[i][j]);
+            printf("%d ", temp[i][j]);
         }
-        // printf("\n");
+        printf("\n");
     }
     copyMatrix(temp, xi_1);
 }

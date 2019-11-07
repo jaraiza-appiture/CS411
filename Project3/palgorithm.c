@@ -58,9 +58,7 @@ int main(int argc, char *argv[])
 	//printf ("\n");
     }
     
-
-    Matrix local = {1,0,0,1};
-    Matrix global;  // M^0   identity matrix
+    Matrix global;  
 
     //calculate M^n/p for all procs
     for(i =1; i < n/procs; i++) {
@@ -68,12 +66,11 @@ int main(int argc, char *argv[])
     }
     //get the last irem in x_local
     global =  M_arr[(n/procs)-1];
-    printf("this is the final matrix\n");
 
     //pass the global to ParallelPrefix
     Matrix offset;
     offset = ParallelPrefix( global, procs, rank, Prime, A, B);
-
+    
     ///now that we have offset
     //we generate randomArr
     int M_randArr[1][2], x0_1[1][2];
@@ -96,26 +93,26 @@ int main(int argc, char *argv[])
     fclose(outfile);
 
 	
-    Matrix myMatrix = {A,0,B,1};
-    int *arr = serial_matrix(n, A, B, Prime, seed);
-    int *arr1 = serial_baseline(n, A, B, Prime, seed);
+    // Matrix myMatrix = {A,0,B,1};
+    // int *arr = serial_matrix(n, A, B, Prime, seed);
+    // int *arr1 = serial_baseline(n, A, B, Prime, seed);
 
-    char filename2[18] = "ResultsSerial.txt";
-    outfile = fopen(filename2, "w");
+    // char filename2[18] = "ResultsSerial.txt";
+    // outfile = fopen(filename2, "w");
 
     
-    for (i =0; i< n; i++ )
-    {
-        fprintf(outfile, "%d\n", arr[i]);
-    }   
+    // for (i =0; i< n; i++ )
+    // {
+    //     fprintf(outfile, "%d\n", arr[i]);
+    // }   
    
 
     
-    for (i =0; i< n; i++ )
-    {
-        fprintf(outfile, "%d\n", arr1[i]);
-    }
-    fclose(outfile);
+    // for (i =0; i< n; i++ )
+    // {
+    //     fprintf(outfile, "%d\n", arr1[i]);
+    // }
+    // fclose(outfile);
     MPI_Finalize();
 
  return 0;
