@@ -80,11 +80,11 @@ Matrix multiplySquareMatMod(Matrix M, Matrix M_next, int Prime)
                 Res.M[i][j] += M.M[i][k] * M_next.M[k][j];
             }
             Res.M[i][j]= Res.M[i][j]% Prime;
-            // printf("%d\n",Res.M[i][j]);
+             printf("%d\n",Res.M[i][j]);
         }
     }
-    // printf("Res = \n");
-    // printMatrix(Res);
+     printf("Res = \n");
+     printMatrix(Res);
 
     M_next = Res;
     return M_next;

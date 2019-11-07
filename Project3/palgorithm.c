@@ -56,13 +56,14 @@ int main(int argc, char *argv[])
     }
 
     Matrix M_local=  { 1,0,0,1}; // M^0   identity matrix
+    
+    //calculate M^n/p for all procs
     for(i =1; i < n/procs; i++) {
-        x_locals[i].M = M_multiplySquareMatMod( x_locals[i].M, x_locals[i-1].M, Prime);
-        printMatrix(M_local);
+       x_locals[i] =  multiplySquareMatMod( x_locals[i], x_locals[i-1], Prime);
 
     }
-    printf("this is the final matrix");
-    printMatrix(x_locals[i]);
+    printf("this is the final matrix\n");
+    printMatrix(M_local);
 
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
