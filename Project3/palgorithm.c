@@ -101,7 +101,6 @@ int main(int argc, char *argv[])
     printf("\n");
 
     fclose(outfile);
-**/
 	
     Matrix myMatrix = {A,0,B,1};
     int *arr = serial_matrix(n, A, B, Prime, seed);
@@ -113,14 +112,14 @@ int main(int argc, char *argv[])
     
     for (i =0; i< n; i++ )
     {
-        fprintf(outfile, "%d\n", arr[i]);
+        fprintf(outfile, "S_Matrix	%d\n", arr[i]);
     }   
    
 
     
     for (i =0; i< n; i++ )
     {
-        fprintf(outfile, "%d\n", arr1[i]);
+        fprintf(outfile, "S_Baseline	%d\n", arr1[i]);
     }
     fclose(outfile);
     MPI_Finalize();
