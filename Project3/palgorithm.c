@@ -36,14 +36,17 @@ int main(int argc, char *argv[])
     Matrix m_local = { A, 0, B, 1 };
     Matrix iden_local = { 1, 0, 0, 1 };
     //initialze everythin
-    int x_local[n/p] = {0};     
+    int x_locals[n/procs];     
     int i;
     //initialize all the xlocals
     for(i =0; i < n/procs; i++) {
-        xlocals[i] = m_local.M;
-        printMatrix(x_locals[i]);
+        x_locals[i] = m_local;
+        x_locals[i].M[0][0] = A;
+        x_locals[i].M[0][1] = B;
+        x_locals[i].M[1][0] = 0;
+        x_locals[i].M[1][1] = 1;
+	printMatrix(x_locals[i].M);
     }
-    
     // myMatrix = {{A,0},{B,1}};
     // int *arr = serial_matrix(n, A, B, Prime, seed);
     // int *arr1 = serial_baseline(n, A, B, Prime, seed);

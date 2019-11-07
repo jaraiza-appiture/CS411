@@ -16,11 +16,12 @@ void copyMatrix(unsigned int src[1][2], unsigned int dest[1][2])
 }
 int printMatrix(Matrix M)
 {
-    for (int i = 0; i < 2; i++) {
-        for(int j = 0; j < 2; j++) {
-            // printf("  | %d  ", M.M[i][j]);
+    int i=0, j=0;
+    for (i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            printf("  | %d  ", M.M[i][j]);
         }
-        // printf("|\n");
+        printf("|\n");
     }
 
 }
@@ -48,10 +49,10 @@ void multiplyRectMatMod(unsigned int x0_1[1][2], Matrix M, unsigned int xi_1[1][
 
 int multiplySquareMat(int M[2][2], int N[2][2], int Res[2][2])
 {
-    
-    for (int i = 0; i < 2; i++) {
-        for(int j = 0; j < 2; j++) {
-            for(int k = 0; k < 2; k++) {
+    int i = 0, j=0, k=0;    
+    for (i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            for(k = 0; k < 2; k++) {
                 Res[i][j] += M[i][k] * N[k][j];
             }
             // printf("%d\n",Res[i][j]);
@@ -67,10 +68,10 @@ Matrix multiplySquareMatMod(Matrix M, Matrix M_next, int Prime)
     // printMatrix(M);
     // printf("M_next = \n");
     // printMatrix(M_next);
-
-    for (int i = 0; i < 2; i++) {
-        for(int j = 0; j < 2; j++) {
-            for(int k = 0; k < 2; k++) {
+    int i = 0, j=0,k=0;
+    for (i = 0; i < 2; i++) {
+        for(j = 0; j < 2; j++) {
+            for(k = 0; k < 2; k++) {
                 Res.M[i][j] += M.M[i][k] * M_next.M[k][j];
             }
             Res.M[i][j]= Res.M[i][j]% Prime;
