@@ -26,9 +26,9 @@ int printMatrix(Matrix M)
     printf("\n");**/
     for (i = 0; i < 2; i++) {
         for(j = 0; j < 2; j++) {
-            // printf("  | %d  ", M.M[i][j]);
+             printf("  | %d  ", M.M[i][j]);
         }
-        // printf("|\n");
+         printf("|\n");
     }
    
 }
@@ -64,9 +64,9 @@ void multiplyRectMatMod(int x0_1[1][2], Matrix M, int xi_1[1][2], int Prime)
             for(k = 0; k<2; k++)
                 xi_1[i][j] += x0_1[i][k] * M.M[k][j];
             xi_1[i][j] = xi_1[i][j] % Prime;
-           printf("temp[i][j]%d ", xi_1[i][j]);
+//           printf("|	%d ", xi_1[i][j]);
         }
-        // printf("\n");
+  //       printf("|\n");
     }
     // copyMatrix(temp, xi_1);
 
@@ -199,7 +199,7 @@ Matrix ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int 
 	    // printf("the buddy is %d", buddy);
 	    if (buddy <rank)
 	    {
-	        printf("\nbuddy is less than rank\n");
+//	        printf("\nbuddy is less than rank\n");
             local = multiplySquareMatMod(g_remote, local,Prime);
 	    }
         //printf("\nthe rank is %d", rank);

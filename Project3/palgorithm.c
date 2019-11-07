@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
     subprocs = procs;
 
     // assert(argc == 6);
-    // A = 2069;
-    // B = 3069;
-    // Prime = 9973;
-    // seed = 10;
-    // n = 8;
-
+  /*  A = 2;
+     B = 2;
+     Prime = 9973;
+     seed = 10;
+     n = 8;
+ */
     A = atoi(argv[1]);
     B = atoi(argv[2]);
     Prime = atoi(argv[3]);
@@ -45,9 +45,9 @@ int main(int argc, char *argv[])
     {
         procs = 8;
     }
-
-    Matrix *M_arr = (Matrix*)malloc(sizeof(Matrix) * n/procs);
-
+   
+    Matrix *M_arr = (Matrix*)malloc(sizeof(Matrix) * (n/procs));
+    int  *ouch_arr = (int*)malloc(sizeof(int)*(n/procs));
     int i;
     //initialize all the xlocals to (A,0,B,1)
     for(i =0; i < n/procs; i++) {
@@ -61,7 +61,16 @@ int main(int argc, char *argv[])
     Matrix global;  
 
     //calculate M^n/p for all procs
-    for(i =1; i < n/procs; i++) {
+    
+   if (rank ==0)
+	{
+	M_arr[0].M[0][0]=1;
+	M_arr[0].M[0][1]=0;
+	M_arr[0].M[1][0]=0;
+	M_arr[0].M[1][1]=1;
+	}
+
+     for(i =1; i < n/procs; i++) {
        M_arr[i] =  multiplySquareMatMod( M_arr[i], M_arr[i-1], Prime);
     }
     //get the last irem in M_arr M^n/p
@@ -70,18 +79,21 @@ int main(int argc, char *argv[])
     //pass the global to ParallelPrefix
     Matrix offset;
     offset = ParallelPrefix( global, procs, rank, Prime, A, B);
-    printf("I am rank %d\n", rank);
-    printf("I am offset\n");
-    printMatrix(offset);
+//    printf("I am rank %d\n", rank);
+//    printf("I am offset\n");
+//    printMatrix(offset);
 
     
     ///now that we have offset
     //we generate randomArr
     int M_randArr[1][2], x0_1[1][2];
+   
     // final ouput 
     // [x0  1] => x0 = seed and 1 stays same
     x0_1[0][0] = seed; x0_1[0][1] = 1;
     int j;
+    
+//    printMatrix(M_arr[0]);
     for ( i = 0; i < n / procs; i++) {
         //generate offset * M_arr[i]
         M_arr[i] = multiplySquareMatMod(M_arr[i], offset, Prime);
@@ -89,14 +101,14 @@ int main(int argc, char *argv[])
 	    // printMatrix(M_arr[i]);
         //generate random numbers => M_randArr has everything in the end
         multiplyRectMatMod(x0_1, M_arr[i], M_randArr, Prime);
-        // x0_1[0][0]  = M_randArr[0][0];
+        ouch_arr[i]  = M_randArr[0][0];
 	
     }
     
 
     for (i = 0; i < n / procs; i++) {
-        fprintf(outfile,"M_randArr: at %d index is %d\n",i, M_randArr[0][0]);
-        fprintf(outfile,"M_randArr: at %d index is %d\n",i, M_randArr[1][0]);
+        fprintf(outfile,"M_randArr: at %d index is %d\n",i, ouch_arr[i]);
+  //      fprintf(outfile,"M_randArr: at %d index is %d\n",i, M_randArr[1][0]);
         // fprintf(outfile,"M_randArr[0][1]: %d\n", M_randArr[0][1]);
     }
     printf("\n");
@@ -107,30 +119,26 @@ int main(int argc, char *argv[])
     int *arr = serial_matrix(n, A, B, Prime, seed);
     int *arr1 = serial_baseline(n, A, B, Prime, seed);
 
-    char filename2[18] = "ResultsSerial.txt";
-    outfile = fopen(filename2, "w");
+    char filename2[18] = "ResultsSerialB.txt";
+    FILE * outfile2 = fopen(filename2, "w");
 
-    
+    char filename3[18] = "ResultsSerialM.txt";
+    FILE * outfile3 = fopen(filename3, "w");
+
+
     for (i =0; i< n; i++ )
     {
-        fprintf(outfile, "S_Matrix	%d\n", arr[i]);
+        fprintf(outfile3, "S_Matrix	%d\n", arr[i]);
     }   
    
 
     
     for (i =0; i< n; i++ )
     {
-        fprintf(outfile, "S_Baseline	%d\n", arr1[i]);
+        fprintf(outfile2, "S_Baseline	%d\n", arr1[i]);
     }
-    fclose(outfile);
-    printf("Test code /n");
-    Matrix myMatrix = {2,0,2,1};
-    int M_randArr[1][2], x0_1[1][2];
-    // final ouput 
-    // [x0  1] => x0 = seed and 1 stays same
-    x0_1[0][0] = seed; x0_1[0][1] = 1;
-
-    multiplyRectMatMod(x0_1, M_arr[i], M_randArr, 7);
+    fclose(outfile2);
+    fclose(outfile3);
 
     MPI_Finalize();
 
