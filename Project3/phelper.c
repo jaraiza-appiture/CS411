@@ -165,26 +165,31 @@ int ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
     int t = 1;
     Matrix local = {1,0,0,1};
     int time_steps = (int)ceil(log2((double)procs)) -1;
+    printf ("timesteps are %d\n" , time_steps);
     for(k = 0; k <= time_steps; k++)
     {
+	printf ("\nk is : %d\n", k);
 	    MPI_Status status;
         Matrix g_remote;
         int buddy = rank ^ t; // XOR flipping operator
         t = t << 1; // double num
 	
-        MPI_Sendrecv(&global.M, sizeof(Matrix), MPI_INT, buddy, 0, &g_remote.M, sizeof(Matrix), MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-        if (buddy <rank)
+        MPI_Sendrecv(&global.M, 4, MPI_INT, buddy, 0, &g_remote.M, 4, MPI_INT, buddy, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+        printf("\nthe rank is %d", rank);
+	printf("the buddy is %d", buddy);
+	if (buddy <rank)
 	    {
-	        printf("buddy is less than rank\n");
-            local = multiplySquareMatMod(g_remote, local);
+	        printf("\nbuddy is less than rank\n");
+	
+            local = multiplySquareMatMod(g_remote, local,Prime);
 
 
 	    }
-        printf("\nthe rank is %d", rank);
+        //printf("\nthe rank is %d", rank);
         printf("\nthis is the local\n");
         printMatrix(local);
 
-        global = multiplySquareMatMod(g_remote, global);
+        global = multiplySquareMatMod(g_remote, global, Prime);
         printf("\nthis is the global\n");
         printMatrix(global);
 
