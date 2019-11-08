@@ -4,6 +4,7 @@
 #include <mpi.h>
 #include <assert.h>
 #include <sys/time.h>
+#include "phelper.c"
 
 int elapsedTime(struct timeval t1, struct timeval t2)
 {
@@ -165,27 +166,22 @@ int main(int argc,char *argv[])
 
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
     gettimeofday(&t1, NULL);
-    // run parallel prefix
+    int * rand_arr_parallel = parallel_matrix(n, A, B, P, seed, p,rank);
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
     gettimeofday(&t2, NULL);
     int time_parallel_prefix = elapsedTime(t1, t2);
     
+    // correctness testing
+    int i = 0, j = 0;
+    int start_index = rank * nums_per_proc;
+    // int end_index = start_index + nums_per_proc;
+    for(j = start_index, i = 0; i < nums_per_proc; j++, i++)
+    {
+        assert(rand_arr_baseline[j] == rand_arr_parallel[i]);
+        assert(rand_arr_baseline[j] == rand_arr_matrix[j]);
+    }
     if(rank == p-1)
     {
-        // must assert rand gen arrays are same
-
-        int i;
-        // printf("rand matrix arr: [");
-        // for(i = 0; i < n -1; i++)
-        //     printf("%d, ", rand_arr_matrix[i]);
-        // printf("%d]\n", rand_arr_matrix[i]);
-
-
-        // printf("rand baseline arr: [");
-        // for(i = 0; i < n -1; i++)
-        //     printf("%d, ", rand_arr_baseline[i]);
-        // printf("%d]\n", rand_arr_baseline[i]);
-
         // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
         printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", time_serial_baseline,
                                                time_serial_matrix,
