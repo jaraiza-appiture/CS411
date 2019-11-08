@@ -180,6 +180,7 @@ int main(int argc,char *argv[])
         assert(rand_arr_baseline[j] == rand_arr_parallel[i]);
         assert(rand_arr_baseline[j] == rand_arr_matrix[j]);
     }
+
     if(rank == p-1)
     {
         // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
