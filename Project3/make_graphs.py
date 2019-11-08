@@ -11,6 +11,8 @@ def load_data(filename):
     for line in in_file:
         #csv format: time_serial_baseline, time_serial_matrix, time_parallel_prefix, procs, elements, a, b, p, seed
         time_serial_baseline, time_serial_matrix, time_parallel_prefix, procs, elements, a, b, p, seed = line.split(',')
+        if int(time_serial_baseline) < 0 or int(time_serial_matrix) < 0 or int(time_parallel_prefix) < 0:
+            continue # ignore negative data points
         if not data.get(int(elements), False):
             data[int(elements)] = {}
         if not data[int(elements)].get(int(procs), False):
@@ -31,7 +33,7 @@ def efficiency(speedUp, procs):
 
 def make_graphs(data):
     
-    x_axis_line = [1, 2, 4, 8, 16, 32, 64]
+    x_axis_line = [2, 4, 8, 16, 32, 64]
     
     # SERIAL MATRIX
     lines_parallel_time = {}
@@ -41,7 +43,7 @@ def make_graphs(data):
         lines_parallel_time[num_elements] = []
         lines_speedup_time[num_elements] = []
         lines_efficiency_time[num_elements] = []
-        avg_best_serial_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in data[num_elements][1]]) # 1 proc
+        avg_best_serial_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in data[num_elements][2]]) # 1 proc
         for num_procs, times in sorted(procs_dict.items()):
             avg_serial_matrix_time = np.average([time_tuple[SERIAL_MATRIX] for time_tuple in times])
             lines_parallel_time[num_elements].append(avg_serial_matrix_time)
@@ -94,7 +96,7 @@ def make_graphs(data):
         lines_parallel_time[num_elements] = []
         lines_speedup_time[num_elements] = []
         lines_efficiency_time[num_elements] = []
-        avg_best_serial_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in data[num_elements][1]]) # 1 proc
+        avg_best_serial_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in data[num_elements][2]]) # 1 proc
         for num_procs, times in sorted(procs_dict.items()):
             avg_parallel_prefix_time = np.average([time_tuple[PARALLEL_PREFIX] for time_tuple in times])
             lines_parallel_time[num_elements].append(avg_parallel_prefix_time)
@@ -147,7 +149,7 @@ def make_graphs(data):
         lines_parallel_time[num_elements] = []
         lines_speedup_time[num_elements] = []
         lines_efficiency_time[num_elements] = []
-        avg_best_serial_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in data[num_elements][1]]) # 1 proc
+        avg_best_serial_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in data[num_elements][2]]) # 1 proc
         for num_procs, times in sorted(procs_dict.items()):
             avg_serial_baseline_time = np.average([time_tuple[SERIAL_BASELINE] for time_tuple in times])
             lines_parallel_time[num_elements].append(avg_serial_baseline_time)
