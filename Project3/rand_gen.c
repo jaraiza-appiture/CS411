@@ -125,6 +125,56 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     return arr;
 }
 
+int test_serial_baseline()
+{
+    int n = 5;
+    int A = 3;
+    int B = 6;
+    int P = 9967;
+    int seed = 42;
+    int test_arr[5] = {42, 132, 402, 1212, 3642}; 
+    int * rand_arr = serial_baseline(n,A,B,P,seed);
+    
+    int i = 0;
+    for(i = 0; i < 5; i++)
+        assert(rand_arr[i] == test_arr[i]);
+    
+}
+
+int test_serial_matrix()
+{
+    int n = 5;
+    int A = 3;
+    int B = 6;
+    int P = 9967;
+    int seed = 42;
+    int test_arr[5] = {42, 132, 402, 1212, 3642}; 
+    int * rand_arr = serial_matrix(n,A,B,P,seed);
+    
+    int i = 0;
+    for(i = 0; i < 5; i++)
+        assert(rand_arr[i] == test_arr[i]);
+    
+}
+
+int test_parallel_matrix()
+{
+    int n = 6;
+    int A = 3;
+    int B = 6;
+    int P = 9967;
+    int seed = 42;
+    int procs = 1;
+    int rank = 0;
+    int test_arr[6] = {42, 132, 402, 1212, 3642, 965}; 
+    int * rand_arr = parallel_matrix(n,A,B,P,seed,procs,rank);
+    
+    int i = 0;
+    for(i = 0; i < 6; i++)
+        assert(rand_arr[i] == test_arr[i]);
+}
+
+
 int main(int argc,char *argv[])
 {
     int rank, p;
