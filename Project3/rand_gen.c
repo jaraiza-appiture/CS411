@@ -4,6 +4,7 @@
 #include <mpi.h>
 #include <assert.h>
 #include <sys/time.h>
+#include "phelper.c"
 
 int elapsedTime(struct timeval t1, struct timeval t2)
 {
@@ -124,6 +125,56 @@ int *serial_matrix(int n, int A, int B, int P, int seed)
     return arr;
 }
 
+int test_serial_baseline()
+{
+    int n = 5;
+    int A = 3;
+    int B = 6;
+    int P = 9967;
+    int seed = 42;
+    int test_arr[5] = {42, 132, 402, 1212, 3642}; 
+    int * rand_arr = serial_baseline(n,A,B,P,seed);
+    
+    int i = 0;
+    for(i = 0; i < 5; i++)
+        assert(rand_arr[i] == test_arr[i]);
+    
+}
+
+int test_serial_matrix()
+{
+    int n = 5;
+    int A = 3;
+    int B = 6;
+    int P = 9967;
+    int seed = 42;
+    int test_arr[5] = {42, 132, 402, 1212, 3642}; 
+    int * rand_arr = serial_matrix(n,A,B,P,seed);
+    
+    int i = 0;
+    for(i = 0; i < 5; i++)
+        assert(rand_arr[i] == test_arr[i]);
+    
+}
+
+int test_parallel_matrix()
+{
+    int n = 6;
+    int A = 3;
+    int B = 6;
+    int P = 9967;
+    int seed = 42;
+    int procs = 1;
+    int rank = 0;
+    int test_arr[6] = {42, 132, 402, 1212, 3642, 965}; 
+    int * rand_arr = parallel_matrix(n,A,B,P,seed,procs,rank);
+    
+    int i = 0;
+    for(i = 0; i < 6; i++)
+        assert(rand_arr[i] == test_arr[i]);
+}
+
+
 int main(int argc,char *argv[])
 {
     int rank, p;
@@ -165,27 +216,23 @@ int main(int argc,char *argv[])
 
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking start time
     gettimeofday(&t1, NULL);
-    // run parallel prefix
+    int * rand_arr_parallel = parallel_matrix(n, A, B, P, seed, p,rank);
     MPI_Barrier(MPI_COMM_WORLD); // synchronize all procs before marking end time
     gettimeofday(&t2, NULL);
     int time_parallel_prefix = elapsedTime(t1, t2);
     
+    // correctness testing
+    int i = 0, j = 0;
+    int start_index = rank * nums_per_proc;
+    // int end_index = start_index + nums_per_proc;
+    for(j = start_index, i = 0; i < nums_per_proc; j++, i++)
+    {
+        assert(rand_arr_baseline[j] == rand_arr_parallel[i]);
+        assert(rand_arr_baseline[j] == rand_arr_matrix[j]);
+    }
+
     if(rank == p-1)
     {
-        // must assert rand gen arrays are same
-
-        int i;
-        // printf("rand matrix arr: [");
-        // for(i = 0; i < n -1; i++)
-        //     printf("%d, ", rand_arr_matrix[i]);
-        // printf("%d]\n", rand_arr_matrix[i]);
-
-
-        // printf("rand baseline arr: [");
-        // for(i = 0; i < n -1; i++)
-        //     printf("%d, ", rand_arr_baseline[i]);
-        // printf("%d]\n", rand_arr_baseline[i]);
-
         // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
         printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", time_serial_baseline,
                                                time_serial_matrix,

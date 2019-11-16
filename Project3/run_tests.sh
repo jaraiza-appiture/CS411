@@ -16,12 +16,7 @@ n=16
 
 while [ $n -le 1048576 ]    
 do
-    #          p              n  A B P    seed
-    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
+    #          p             n  A B P    seed
     mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 2 ./rand_gen $n 5 9 9967 42 >> results.csv
@@ -33,17 +28,7 @@ do
     mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 4 ./rand_gen $n 5 9 9967 42 >> results.csv
 
-    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 8 ./rand_gen $n 5 9 9967 42 >> results.csv
@@ -55,28 +40,13 @@ do
     mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 16 ./rand_gen $n 5 9 9967 42 >> results.csv
 
     mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 32 ./rand_gen $n 5 9 9967 42 >> results.csv
 
-    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
-    mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv
     mpirun -np 64 ./rand_gen $n 5 9 9967 42 >> results.csv

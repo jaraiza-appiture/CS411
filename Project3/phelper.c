@@ -135,47 +135,47 @@ int getPartner(int tStep, int rank)
     return partner;
 }
 
-int *serial_matrix(int n, int A, int B, int P, int seed)
-{
-    int i;
-    Matrix M = { A, 0, B, 1 };
-    Matrix M_next = M;
+// int *serial_matrix(int n, int A, int B, int P, int seed)
+// {
+//     int i;
+//     Matrix M = { A, 0, B, 1 };
+//     Matrix M_next = M;
     
-    //[xi   1] [x0    1]
-    int xi_1[1][2], x0_1[1][2];
+//     //[xi   1] [x0    1]
+//     int xi_1[1][2], x0_1[1][2];
 
-    // final ouput 
-    int *arr = malloc(sizeof(unsigned int) * n);
-    // [x0  1] => x0 = seed and 1 stays same
-    x0_1[0][0] = seed; x0_1[0][1] = 1;
-    // arr[0] <= seed
-    arr[0] = seed;
+//     // final ouput 
+//     int *arr = malloc(sizeof(unsigned int) * n);
+//     // [x0  1] => x0 = seed and 1 stays same
+//     x0_1[0][0] = seed; x0_1[0][1] = 1;
+//     // arr[0] <= seed
+//     arr[0] = seed;
 
-    //go through all the inputs 
-    for(i = 1; i< n; i++)
-    {
-        // [xi  1] = [x0    1] x^   M_next
-        //should modify M_next
-        multiplyRectMatMod(x0_1, M_next, xi_1, P);
-        arr[i] = xi_1[0][0];
-        //printMatrix(M_next);
-        M_next = multiplySquareMatMod(M, M_next, P);
-        // printf("\t\ti = %d\n", i);
-    }
+//     //go through all the inputs 
+//     for(i = 1; i< n; i++)
+//     {
+//         // [xi  1] = [x0    1] x^   M_next
+//         //should modify M_next
+//         multiplyRectMatMod(x0_1, M_next, xi_1, P);
+//         arr[i] = xi_1[0][0];
+//         //printMatrix(M_next);
+//         M_next = multiplySquareMatMod(M, M_next, P);
+//         // printf("\t\ti = %d\n", i);
+//     }
     
-    return arr;
-}
-int *serial_baseline(int n, int A, int B, int P, int seed)
-{
-    int x_cur = 1, x_prev = 0;
-    int *arr = malloc(sizeof(int) * n);
-    arr[x_prev] = seed; // init x[0] with seed
+//     return arr;
+// }
+// int *serial_baseline(int n, int A, int B, int P, int seed)
+// {
+//     int x_cur = 1, x_prev = 0;
+//     int *arr = malloc(sizeof(int) * n);
+//     arr[x_prev] = seed; // init x[0] with seed
 
-    for(x_cur, x_prev; x_cur < n; x_cur++, x_prev++)
-        arr[x_cur] = ((arr[x_prev]*A) + B) % P; // linear congruential generator
+//     for(x_cur, x_prev; x_cur < n; x_cur++, x_prev++)
+//         arr[x_cur] = ((arr[x_prev]*A) + B) % P; // linear congruential generator
 
-    return arr;
-}
+//     return arr;
+// }
 
 Matrix ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int B)
 {
@@ -215,7 +215,7 @@ Matrix ParallelPrefix(Matrix global, int procs, int rank, int Prime, int A, int 
     return local;
 }
 
-int * ParallelImplementation(int n, int A, int B, int Prime, int seed, int procs, int rank)
+int * parallel_matrix(int n, int A, int B, int Prime, int seed, int procs, int rank)
 {
     Matrix *M_arr = (Matrix*)malloc(sizeof(Matrix) * (n/procs));
     int  *ouch_arr = (int*)malloc(sizeof(int)*(n/procs));
