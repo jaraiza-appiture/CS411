@@ -1,0 +1,24 @@
+number of requested threads = 1
+number of requested n = 1000000000
+total_hits 785397970.000000
+pi value 3.141592 
+Total time = 42.867950 seconds 
+
+number of requested threads = 2
+number of requested n = 1000000000
+total_hits 785398003.000000
+pi value 3.141592 
+Total time = 22.917177 seconds 
+
+number of requested threads = 4
+number of requested n = 1000000000
+total_hits 785397742.000000
+pi value 3.141591 
+Total time = 13.058945 seconds 
+
+number of requested threads = 8
+number of requested n = 1000000000
+total_hits 785398133.000000
+pi value 3.141593 
+Total time = 9.320876 seconds 
+ 
