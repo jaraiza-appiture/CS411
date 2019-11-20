@@ -179,6 +179,7 @@ int main(int argc,char *argv[])
 {
     int rank, p;
     struct timeval t1, t2;
+    int debug = 1;
     int n = 0, A = 0, B = 0, P = 0, seed = 0, root = 0;
     
     MPI_Init(&argc, &argv);
@@ -233,11 +234,29 @@ int main(int argc,char *argv[])
 
     if(rank == p-1)
     {
-        // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
-        printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", time_serial_baseline,
+        if(debug)
+        {    
+            printf("Rand Arr: [ ");
+
+            for(i = 0; i < n; i++)
+            {
+                printf("%d ", rand_arr_baseline[i]);
+            }
+
+            printf("]\n");
+
+            printf("Serial Baseline Time: %d\n", time_serial_baseline);
+            printf("Serial Matrix Time: %d\n", time_serial_matrix);
+            printf("Parallel Prefix Time: %d\n", time_parallel_prefix);
+        }
+        else
+        {
+            // csv format output: time_serial_baseline, time_serial_matrix, time_parallel_prefix, num_procs, array_size, a, b, p, seed 
+            printf("%d,%d,%d,%d,%d,%d,%d,%d,%d\n", time_serial_baseline,
                                                time_serial_matrix,
                                                time_parallel_prefix,
                                                p, n, A, B, P, seed);
+        }
     }
 
     MPI_Finalize();
