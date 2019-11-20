@@ -11,6 +11,13 @@ SBATCH --time=00:10:00
 #"np" stands for number of processes.
 #this command will run the job on 8 processes.
 mpicc -o rand_gen rand_gen.c -w -lm
-n=16
+
+# n=16
+
+# one million
+n=1000000
+
+# one billion
+# n=1000000000
 #          p             n A B P    seed
 mpirun -np 2 ./rand_gen $n 5 9 9967 42
