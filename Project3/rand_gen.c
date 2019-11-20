@@ -235,10 +235,12 @@ int main(int argc,char *argv[])
     if(rank == p-1)
     {
         if(debug)
-        {    
+        {   if(n > 1000){ j = 1000; }
+            else{ j = n;}
+            
             printf("Rand Arr: [ ");
 
-            for(i = 0; i < n; i++)
+            for(i = 0; i < j; i++)
             {
                 printf("%d ", rand_arr_baseline[i]);
             }
