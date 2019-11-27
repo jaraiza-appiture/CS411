@@ -41,9 +41,8 @@ void print_graph(map<int, node> graph)
     }
 }
 
-map<int, node> load_graph(string filename)
+void load_graph(string filename, map<int, node>& graph, vector<int>& keys)
 {
-    map<int, node> graph;
     ifstream graphfile;
     char line[100];
     graphfile.open(filename);
@@ -60,82 +59,69 @@ map<int, node> load_graph(string filename)
         sscanf(line, "%d %d", &src_id, &dest_id);
         
         if(graph.find(src_id) == graph.end())
+        {
             graph[src_id] = node(src_id);
+            keys.push_back(src_id);
+        }
 
         if(graph.find(dest_id) == graph.end())
+        {
             graph[dest_id] = node(dest_id);
+            keys.push_back(dest_id);
+        }
 
         graph[src_id].outlinks.push_back(dest_id);
     }
 
     graphfile.close();
-
-    return graph;
 }
 
 bool coin_toss(double d)
 {
-    
     double coin;
     drand48_r(&randBuffer, &coin);
-
-    // cout << "Coin Toss: " << coin << endl;
 
     if(coin <= d)
         return true; //jump
     return false; //dont jump
 }
 
-void travel(map<int, node>& graph, vector<int> keys, int node_id, int k, double d)
+void travel(map<int, node>& graph, vector<int>& keys, int node_id, int k, double d)
 {
     
     for(int i = 0; i < k; i++)
     {
-        graph[node_id].visit_count++;
+        #pragma omp atomic
+            graph[node_id].visit_count += 1;
 
         if(coin_toss(d)) // jump
-        {
             node_id = graph[keys[rand() % keys.size()]].id;
-            // cout << "Jumping" << endl;
-        }
         else // pick neighbor
         {
             int index = rand() % (graph[node_id].outlinks.size() + 1);
             if(index != graph[node_id].outlinks.size())
-            {
                 node_id = graph[node_id].outlinks[index];
-                // cout << "Picking neighbor" << endl;
-            }
-            else
-            {
-                // cout << "Reusing self" << endl;
-            }
-            
         }
     }
 }
 
-void page_rank(map<int, node>& graph, int k, double d)
+void page_rank(map<int, node>& graph, vector<int>& keys, int k, double d, double& time_elapsed)
 {
     srand(time(0));
-    vector<int> keys;
+    
     priority_queue<node, vector<node>, LessThanByVisit> rankings;
 
-    // get keys
-    for(map<int, node>::iterator it = graph.begin(); it != graph.end(); it++)
-    {
-        keys.push_back(it->first);
-    }
-
-    for(int i=0; i< keys.size(); i++)
+    int i;
+    time_elapsed = omp_get_wtime();
+    #pragma omp parallel for schedule(static) shared(keys, graph) private(i)
+    for(i=0; i< keys.size(); i++)
     {
         travel(graph, keys, keys[i], k, d);
     }
+    time_elapsed = omp_get_wtime() - time_elapsed;
 
     for(map<int, node>::iterator it = graph.begin(); it != graph.end(); it++)
-    {
         rankings.push(it->second);
-    }
 
     cout << "Top 5 pages: " << endl;
     for(int i = 0; i < 5; i++)
@@ -143,17 +129,18 @@ void page_rank(map<int, node>& graph, int k, double d)
         cout << "id: " << rankings.top().id << " visit_count: " << rankings.top().visit_count << endl;
         rankings.pop();
     }
-
-
 }
 
 int main(int argc, char *argv[])
 {
     int rank, k, p = 1;
-    double d;
+    double d, time_elapsed;
+    
     string filename;
     map<int, node> graph;
-    srand48_r(time(0), &randBuffer);
+    vector<int> keys;
+
+    srand48_r(time(NULL), &randBuffer);
     if(argc < 5)
     {
         cout << "Usage: pagerank graphfilename {k: length of walk} {d: damping ratio}";
@@ -170,22 +157,23 @@ int main(int argc, char *argv[])
         filename = argv[1];
 
         cout << "Filename: " << filename;
-        cout << " Procs: " << p;
         cout << " K: " << k;
-        cout << " D: " << d << endl;
+        cout << " D: " << d;
+        cout << " Procs: " << p << endl;
     }
 
-    graph = load_graph(filename);
-    // print_graph(graph);
-    page_rank(graph, k, d);
-    // omp_set_num_threads(p);
+    omp_set_num_threads(p);
 
-    // #pragma omp parallel
-    // {
-    //     assert(p==omp_get_num_threads());
+    #pragma omp parallel
+    {
+        assert(p==omp_get_num_threads());
+        // int rank = omp_get_thread_num();
+        // cout << "Rank=" << rank << "threads=" << p << endl;
+    }
 
-    //     int rank = omp_get_thread_num();
-    // }
+    load_graph(filename, graph, keys);
 
+    page_rank(graph, keys, k, d, time_elapsed);
 
+    cout << "Time: " << time_elapsed << endl;
 }
