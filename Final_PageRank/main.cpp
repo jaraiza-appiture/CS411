@@ -1,32 +1,39 @@
 #include <fstream>
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <omp.h>
 #include <assert.h>
 #include <vector>
+// Things to do:
+// Graphs: runtime graph for all 4 graph, also table, speedup, maybe efficeiney
+// Table of graphs and num verts and nodes
+// parametric study: change k, threads stay constant
+// table: fix n, change k
+// damping 10, 15, 90, show times and how ranking changes, threads constant
+// table: scaling, for 1 graph, change k row, change thread column
+
 #include <queue>
 #include "node.h"
 
 using std::cout;
 using std::endl;
 using std::string;
-using std::map;
 using std::ifstream;
 using std::getline;
 using std::vector;
 using std::priority_queue;
+using std::unordered_map;
 
 struct drand48_data randBuffer;
-
-
+int debug = 0;
 // map<int, node> load_graph(string filename)
-void print_graph(map<int, node> graph)
-{
-    map<int, node>::iterator it = graph.begin();
-    vector<int>::iterator list_it;
+// void print_graph(unordered_map<int, node> graph)
+// {
+//     unordered_map<int, node>::iterator it = graph.begin();
+//     vector<int>::iterator list_it;
 
-    while(it != graph.end())
-    {
+//     while(it != graph.end())
+//     {
         // int id = it->first;
 
         // cout << "src_id: " << id << " -> ";
@@ -38,10 +45,10 @@ void print_graph(map<int, node> graph)
         // cout << endl;
 
         // it++;
-    }
-}
+//     }
+// }
 
-void load_graph(string filename, map<int, node>& graph, vector<int>& keys)
+void load_graph(string filename, unordered_map<int, node>& graph, vector<int>& keys)
 {
     ifstream graphfile;
     char line[100];
@@ -86,11 +93,11 @@ bool coin_toss(double d)
     return false; //dont jump
 }
 
-void travel(map<int, node>& graph, vector<int>& keys, int node_id, int k, double d)
+void travel(unordered_map<int, node>& graph, vector<int>& keys, int node_id, int k, double d)//, omp_lock_t& lock)
 {
-    
     for(int i = 0; i < k; i++)
     {
+        // atomic method:
         #pragma omp atomic
             graph[node_id].visit_count += 1;
 
@@ -105,29 +112,32 @@ void travel(map<int, node>& graph, vector<int>& keys, int node_id, int k, double
     }
 }
 
-void page_rank(map<int, node>& graph, vector<int>& keys, int k, double d, double& time_elapsed)
+void page_rank(unordered_map<int, node>& graph, vector<int>& keys, int k, double d, double& time_elapsed)
 {
     srand(time(0));
     
     priority_queue<node, vector<node>, LessThanByVisit> rankings;
-
     int i;
+
     time_elapsed = omp_get_wtime();
-    #pragma omp parallel for schedule(static) shared(keys, graph) private(i)
+    #pragma omp parallel for schedule(dynamic) shared(keys, graph) private(i)
     for(i=0; i< keys.size(); i++)
     {
         travel(graph, keys, keys[i], k, d);
     }
     time_elapsed = omp_get_wtime() - time_elapsed;
 
-    for(map<int, node>::iterator it = graph.begin(); it != graph.end(); it++)
+    for(unordered_map<int, node>::iterator it = graph.begin(); it != graph.end(); it++)
         rankings.push(it->second);
 
-    cout << "Top 5 pages: " << endl;
-    for(int i = 0; i < 5; i++)
+    if(debug)
     {
-        cout << "id: " << rankings.top().id << " visit_count: " << rankings.top().visit_count << endl;
-        rankings.pop();
+        cout << "Top 5 pages: " << endl;
+        for(int i = 0; i < 5; i++)
+        {
+            cout << "id: " << rankings.top().id << " visit_count: " << rankings.top().visit_count << endl;
+            rankings.pop();
+        }
     }
 }
 
@@ -137,7 +147,7 @@ int main(int argc, char *argv[])
     double d, time_elapsed;
     
     string filename;
-    map<int, node> graph;
+    unordered_map<int, node> graph;
     vector<int> keys;
 
     srand48_r(time(NULL), &randBuffer);
@@ -155,11 +165,12 @@ int main(int argc, char *argv[])
         p = atoi(argv[4]);
         assert(p>=1);
         filename = argv[1];
-
-        cout << "Filename: " << filename;
-        cout << " K: " << k;
-        cout << " D: " << d;
-        cout << " Procs: " << p << endl;
+        if (debug){
+            cout << "Filename: " << filename;
+            cout << " K: " << k;
+            cout << " D: " << d;
+            cout << " Procs: " << p << endl;
+        }
     }
 
     omp_set_num_threads(p);
@@ -167,13 +178,19 @@ int main(int argc, char *argv[])
     #pragma omp parallel
     {
         assert(p==omp_get_num_threads());
-        // int rank = omp_get_thread_num();
-        // cout << "Rank=" << rank << "threads=" << p << endl;
     }
 
+    if(debug)
+        cout << "Loading graph..." << endl;
     load_graph(filename, graph, keys);
-
+    
+    if(debug)
+        cout << "Ranking pages..." << endl;
     page_rank(graph, keys, k, d, time_elapsed);
 
-    cout << "Time: " << time_elapsed << endl;
+    if(debug)
+        cout << "Time (ms): " << time_elapsed*1000 << endl;
+    // csv: p,d,k,runtime,filename
+    cout << p << "," << d << "," << k << "," << time_elapsed*1000;
+    cout << "," << filename << endl;
 }

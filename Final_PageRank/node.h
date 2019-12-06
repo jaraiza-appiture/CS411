@@ -12,10 +12,6 @@ public:
     vector<int> outlinks;
 };
 
-// bool operator<(const node& lhs, const node& rhs)
-// {
-//   return lhs.visit_count < rhs.visit_count;
-// }
 struct LessThanByVisit
 {
   bool operator()(const node& lhs, const node& rhs) const
