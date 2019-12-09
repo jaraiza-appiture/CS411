@@ -6,6 +6,8 @@
 #include <time.h>
 #include <math.h>
 #include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 using namespace std;
 struct Node{
@@ -73,7 +75,7 @@ int main(int argc, char *argv[])
     {
         std::string line = "" ;
         getline(infile, line);
-        numNodes = stoi(line);
+        numNodes = atoi(line.c_str());
         mygraph  = (struct Node*)malloc(sizeof(struct Node)*numNodes);
 
 
@@ -88,8 +90,8 @@ int main(int argc, char *argv[])
         while (!infile.eof()) {
             getline(infile, first_num, '\t');
             getline(infile, second_num);
-            currNode= stoi(first_num);
-            currFriend= stoi(second_num);
+            currNode= atoi(first_num.c_str());
+            currFriend= atoi(second_num.c_str());
             // printf("This is me %d\n", currNode);
             // printf("This is my friend %d\n", currFriend);
             mygraph[currNode].visits = 0;
