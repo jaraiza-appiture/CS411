@@ -4,14 +4,6 @@
 #include <omp.h>
 #include <assert.h>
 #include <vector>
-// Things to do:
-// Graphs: runtime graph for all 4 graph, also table, speedup, maybe efficeiney
-// Table of graphs and num verts and nodes
-// parametric study: change k, threads stay constant
-// table: fix n, change k
-// damping 10, 15, 90, show times and how ranking changes, threads constant
-// table: scaling, for 1 graph, change k row, change thread column
-
 #include <queue>
 #include "node.h"
 
@@ -19,34 +11,12 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::ifstream;
-using std::getline;
 using std::vector;
 using std::priority_queue;
 using std::unordered_map;
 
 struct drand48_data randBuffer;
 int debug = 0;
-// map<int, node> load_graph(string filename)
-// void print_graph(unordered_map<int, node> graph)
-// {
-//     unordered_map<int, node>::iterator it = graph.begin();
-//     vector<int>::iterator list_it;
-
-//     while(it != graph.end())
-//     {
-        // int id = it->first;
-
-        // cout << "src_id: " << id << " -> ";
-
-        // for(list_it = graph[id].outlinks.begin(); list_it != graph[id].outlinks.end(); ++list_it)
-        // {
-        //     cout << list_it->first << " ";
-        // }
-        // cout << endl;
-
-        // it++;
-//     }
-// }
 
 void load_graph(string filename, unordered_map<int, node>& graph, vector<int>& keys)
 {
@@ -93,7 +63,7 @@ bool coin_toss(double d)
     return false; //dont jump
 }
 
-void travel(unordered_map<int, node>& graph, vector<int>& keys, int node_id, int k, double d)//, omp_lock_t& lock)
+void travel(unordered_map<int, node>& graph, vector<int>& keys, int node_id, int k, double d)
 {
     for(int i = 0; i < k; i++)
     {
@@ -116,7 +86,7 @@ void page_rank(unordered_map<int, node>& graph, vector<int>& keys, int k, double
 {
     srand(time(0));
     
-    priority_queue<node, vector<node>, LessThanByVisit> rankings;
+    priority_queue<node, vector<node>, LTBVisit> rankings;
     int i;
 
     time_elapsed = omp_get_wtime();
